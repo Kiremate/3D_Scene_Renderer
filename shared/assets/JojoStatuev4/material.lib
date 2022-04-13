@@ -1,0 +1,144 @@
+# Aspose.3D Wavefront OBJ Exporter
+# Copyright 2004-2022 Aspose Pty Ltd.
+# File created: 04/13/2022 06:13:32
+
+newmtl Material.003
+	Ka 0 0 0
+	Kd 0.75722867250442512 0.80000007152557376 0.02338641323149204
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+newmtl Material.001
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\jotaroPlashText.png
+newmtl Material.004
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\jotaroHeadtexture2.png
+newmtl Material.009
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\JotaroEyeTexture.png
+newmtl Material.002
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\JotaroBodyText.png
+newmtl Material.008
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\StarPlatinumNaplechText.png
+newmtl Material.017
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\DioEyeTexture.png
+newmtl Material.005
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\StarPlatinumHeadText.png
+newmtl Material.006
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\StarPlatinumBodyText.png
+newmtl Material.007
+	Ka 0 0 0
+	Kd 0.00758511666208505 0.00201910035684704 0.01738704554736614
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+newmtl Material.016
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\DioSheyaText.png
+newmtl Material.015
+	Ka 0 0 0
+	Kd 0.32226392626762392 0.80000007152557376 0.01249582134187221
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+newmtl Material.013
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\DioEyeTexture.png
+newmtl Material.010
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\DioBodyTexture.png
+newmtl Material.011
+	Ka 0 0 0
+	Kd 0.80000001192092896 0.80000001192092896 0.80000001192092896
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
+	map_Kd C:\Users\Digildon\Desktop\jojoTextures\DioHeadTexture.png
+newmtl Material.012
+	Ka 0 0 0
+	Kd 0.80000007152557376 0.68570935726165768 0.01783014647662639
+	d 1
+	Tr 0
+	illum 2
+	Ks 1 1 1
+	Ns 9.60784313725490336
