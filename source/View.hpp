@@ -32,11 +32,13 @@
 
         private:
 
-            static constexpr char mesh_file_path[] = "../../shared/assets/jin.obj";
+            static constexpr char mesh_file_path[] = "../../shared/assets/stanford-bunny.obj";
 
             Color_Buffer               color_buffer;
             Rasterizer< Color_Buffer > rasterizer;
-
+            // Datos de la malla
+			// En la practica tiene que haber varias mallas
+			// Sacar esto en una clase aparte de mallas
             Vertex_Buffer     original_vertices;
             Index_Buffer      original_indices;
             Vertex_Colors     original_colors;
