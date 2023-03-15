@@ -20,7 +20,8 @@ namespace example
         width       (width ),
         height      (height),
         color_buffer(width, height),
-        rasterizer  (color_buffer )
+        rasterizer  (color_buffer ),
+        camera(60.0f, 0.1f, 100.0f, Vector3f(0.0f, 0.0f, 15.0f), Vector3f(0.0f, 0.0f, -1.0f), Vector3f(0.0f, 1.0f, 0.0f))
     {
         Assimp::Importer importer;
 
@@ -88,32 +89,86 @@ namespace example
 
     void View::update ()
     {
-        // Se actualizan los parámetros de transformatión (sólo se modifica el ángulo):
-
-        static float angle = 0.f;
-
-        angle += 0.025f;
-
-        // Se crean las matrices de transformación:
+        transform_vertices();
+    }
+    
+    Camera& View::get_camera()
+    {
+        return camera;
+    }
+    
+    void View::render ()
+    {
+        // Se convierten las coordenadas transformadas y proyectadas a coordenadas
+        // de recorte (-1 a +1) en coordenadas de pantalla con el origen centrado.
+        // La coordenada Z se escala a un valor suficientemente grande dentro del
+        // rango de int (que es lo que espera fill_convex_polygon_z_buffer).
 
         Matrix44 identity(1);
-        Matrix44 scaling     = scale           (identity, 4.f);
-        Matrix44 rotation_y  = rotate_around_y (identity, angle);
-        Matrix44 translation = translate       (identity, Vector3f{ 0.f, 0.5f, -10.f });
-        Matrix44 projection  = perspective     (20, 1, 15, float(width) / height);
+        Matrix44 scaling = scale(identity, float(width / 2), float(height / 2), 100000000.f);
+        Matrix44 translation = translate(identity, Vector3f{ float(width / 2), float(height / 2), 0.f });
+        Matrix44 transformation = translation * scaling;
+
+        for (size_t index = 0, number_of_vertices = transformed_vertices.size(); index < number_of_vertices; index++)
+        {
+            display_vertices[index] = Point4i(transformation * transformed_vertices[index]);
+        }
+
+        // Se borra el framebúffer y se dibujan los triángulos:
+
+        rasterizer.clear();
+
+        for (int* indices = original_indices.data(), *end = indices + original_indices.size(); indices < end; indices += 3)
+        {
+            if (is_frontface(transformed_vertices.data(), indices))
+            {
+                // Se establece el color del polígono a partir del color de su primer vértice:
+
+                rasterizer.set_color(original_colors[*indices]);
+
+                // Se rellena el polígono:
+
+                rasterizer.fill_convex_polygon_z_buffer(display_vertices.data(), indices, indices + 3);
+            }
+        }
+
+        // Se copia el framebúffer oculto en el framebúffer de la ventana:
+
+        color_buffer.blit_to_window();
+    }
+
+    void View::transform_vertices()
+    {
+    // Comment out or remove the following line to stop the rotation
+      // angle += 0.025f;
+
+      // Se crean las matrices de transformación:
+
+        Matrix44 identity(1);
+        Matrix44 scaling = scale(identity, 4.f);
+
+        // Use an identity matrix instead of rotation_y to disable rotation
+        Matrix44 rotation_y = identity;
+        // Matrix44 rotation_y = rotate_around_y(identity, angle);
+
+        Matrix44 translation = translate(identity, Vector3f{ 0.f, 0.5f, -10.f });
+        Matrix44 projection = perspective(20, 1, 15, float(width) / height);
+
+        // Get the camera's view matrix
+        Matrix44 view_matrix = camera.get_view_matrix();
 
         // Creación de la matriz de transformación unificada:
 
-        Matrix44 transformation = projection * translation * rotation_y * scaling;
+        Matrix44 transformation = projection * view_matrix * translation * rotation_y * scaling;
 
         // Se transforman todos los vértices usando la matriz de transformación resultante:
 
-        for (size_t index = 0, number_of_vertices = original_vertices.size (); index < number_of_vertices; index++)
+        for (size_t index = 0, number_of_vertices = original_vertices.size(); index < number_of_vertices; index++)
         {
             // Se multiplican todos los vértices originales con la matriz de transformación y
             // se guarda el resultado en otro vertex buffer:
 
-            Vertex & vertex = transformed_vertices[index] = transformation * original_vertices[index];
+            Vertex& vertex = transformed_vertices[index] = transformation * original_vertices[index];
 
             // La matriz de proyección en perspectiva hace que el último componente del vector
             // transformado no tenga valor 1.0, por lo que hay que normalizarlo dividiendo:
@@ -123,48 +178,8 @@ namespace example
             vertex.x *= divisor;
             vertex.y *= divisor;
             vertex.z *= divisor;
-            vertex.w  = 1.f;
+            vertex.w = 1.f;
         }
-    }
-
-    void View::render ()
-    {
-        // Se convierten las coordenadas transformadas y proyectadas a coordenadas
-        // de recorte (-1 a +1) en coordenadas de pantalla con el origen centrado.
-        // La coordenada Z se escala a un valor suficientemente grande dentro del
-        // rango de int (que es lo que espera fill_convex_polygon_z_buffer).
-
-        Matrix44 identity(1);
-        Matrix44 scaling        = scale (identity, float(width / 2), float(height / 2), 100000000.f);
-        Matrix44 translation    = translate (identity, Vector3f{ float(width / 2), float(height / 2), 0.f });
-        Matrix44 transformation = translation * scaling;
-
-        for (size_t index = 0, number_of_vertices = transformed_vertices.size (); index < number_of_vertices; index++)
-        {
-            display_vertices[index] = Point4i( transformation * transformed_vertices[index] );
-        }
-
-        // Se borra el framebúffer y se dibujan los triángulos:
-
-        rasterizer.clear ();
-
-        for (int * indices = original_indices.data (), * end = indices + original_indices.size (); indices < end; indices += 3)
-        {
-            if (is_frontface (transformed_vertices.data (), indices))
-            {
-                // Se establece el color del polígono a partir del color de su primer vértice:
-
-                rasterizer.set_color (original_colors[*indices]);
-
-                // Se rellena el polígono:
-
-                rasterizer.fill_convex_polygon_z_buffer (display_vertices.data (), indices, indices + 3);
-            }
-        }
-
-        // Se copia el framebúffer oculto en el framebúffer de la ventana:
-
-        color_buffer.blit_to_window ();
     }
 
     bool View::is_frontface (const Vertex * const projected_vertices, const int * const indices)

@@ -11,6 +11,7 @@
     #include "math.hpp"
     #include "Rasterizer.hpp"
     #include <vector>
+    #include "Camera.h"
 
     namespace example
     {
@@ -44,7 +45,7 @@
             Vertex_Colors     original_colors;
             Vertex_Buffer     transformed_vertices;
             vector< Point4i > display_vertices;
-
+            Camera camera;
             unsigned width;
             unsigned height;
 
@@ -54,7 +55,8 @@
 
             void update ();
             void render ();
-
+            void transform_vertices();
+            Camera& get_camera();
         private:
 
             bool  is_frontface (const Vertex * const projected_vertices, const int * const indices);

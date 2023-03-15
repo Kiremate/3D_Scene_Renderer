@@ -1,76 +1,93 @@
 #pragma once
 #include "math.hpp"
 #include <SFML/Window/Event.hpp>
-
 using namespace example;
 
 struct Transform {
-    Vector3f position;
-    Quaternion rotation;
-    Vector3f scale;
+  Vector3f position;
+  Quaternion rotation;
+  Vector3f scale;
 
-    Matrix44 get_transform_matrix() {
-        Matrix44 scale_matrix = glm::scale(Matrix44(1.0f), scale);
-        Matrix44 rotation_matrix = glm::mat4_cast(rotation);
-        Matrix44 translation_matrix = glm::translate(Matrix44(1.0f), position);
+  Matrix44 get_transform_matrix() {
+      Matrix44 scale_matrix = glm::scale(example::Matrix44(1.0f), scale);
+      Matrix44 rotation_matrix = glm::mat4_cast(rotation);
+      Matrix44 translation_matrix = glm::translate(example::Matrix44(1.0f), position);
         return translation_matrix * rotation_matrix * scale_matrix;
     }
 
-    void move(const Vector3f& offset) {
+    void move(const example::Vector3f& offset) {
         position += offset;
     }
 
-    void rotate(const Quaternion& q) {
+    void rotate(const example::Quaternion& q) {
         rotation = glm::normalize(rotation * q);
     }
 
-    void set_rotation(const Quaternion& q) {
+    void set_rotation(const example::Quaternion& q) {
         rotation = q;
     }
 
-    void scale_up(const Vector3f& factor) {
+    void scale_up(const example::Vector3f& factor) {
         scale *= factor;
     }
 
-    void scale_down(const Vector3f& factor) {
+    void scale_down(const example::Vector3f& factor) {
         scale /= factor;
     }
 
-    void translate_local(const Vector3f& offset) {
+    void translate_local(const example::Vector3f& offset) {
         // Get the rotation matrix from the quaternion
-        Matrix44 rotation_matrix = glm::mat4_cast(rotation);
+      Matrix44 rotation_matrix = glm::mat4_cast(rotation);
 
         // Transform the offset vector by the rotation matrix
-        Vector4f transformed_offset = glm::vec4(offset, 0.0f) * rotation_matrix;
+      Vector4f transformed_offset = glm::vec4(offset, 0.0f) * rotation_matrix;
 
         // Add the transformed offset to the position
-        position += Vector3f(transformed_offset);
+        position += example::Vector3f(transformed_offset);
     }
 
     void rotate(float pitch, float yaw) {
-        // Update the rotation quaternion with the new pitch and yaw angles
-        Quaternion q_yaw = glm::angleAxis(glm::radians(yaw), Vector3f(0, 1, 0));
-        Quaternion q_pitch = glm::angleAxis(glm::radians(pitch), Vector3f(1, 0, 0));
-        rotation = glm::normalize(rotation * q_yaw * q_pitch);
+    // Update the rotation quaternion with the new pitch and yaw angles
+      Quaternion q_yaw = glm::angleAxis(glm::radians(yaw), example::Vector3f(0, 1, 0));
+      Quaternion q_pitch = glm::angleAxis(glm::radians(pitch), example::Vector3f(1, 0, 0));
+      rotation = glm::normalize(rotation * q_yaw * q_pitch);
     }
+
 };
 
 class Camera {
     
 public:
-    Matrix44 get_view_matrix();
-    Matrix44 get_inverse_transform_matrix();
-    void handle_event(const sf::Event& event, float delta_time);
+  Matrix44 get_view_matrix();
+  Matrix44 get_inverse_transform_matrix();
+    void handle_input(const sf::Window& window, float delta_time);
     Camera() = default;
-    Camera(float fov, float near, float far, Vector3f position, Vector3f target, Vector3f up) :
-        fov(fov), near(near), far(far), transform({ position, Vector3f(0.0f), Vector3f(1.0f) }), view_direction(normalize(target - position)), up_direction(normalize(up))
+    Camera(float fov, float near_plane, float far_plane, Vector3f position, Vector3f target, Vector3f up)
+        : fov(fov),
+        near_plane(near_plane),
+        far_plane(far_plane),
+        move_speed_(5.0f),
+        rotation_speed_(0.1f),
+        transform{},
+        view_direction(normalize(target - position)),
+        up_direction(normalize(up)),
+        mouse_captured(false)
     {
+        transform.position = position;
+
+        Vector3f forward = normalize(target - position);
+        Vector3f right = normalize(cross(up, forward));
+        Vector3f new_up = cross(forward, right);
+        Matrix33 rotation_matrix(right, new_up, forward);
+        transform.rotation = Quaternion(rotation_matrix);
     }
+    void move_camera(float x, float y, float z);
+
+
 private:
-    
     float fov;
-    float near;
-    float far;
+    float near_plane;
+    float far_plane;
     float move_speed_ = 5.0f;
     float rotation_speed_ = 0.1f;
     Transform transform;

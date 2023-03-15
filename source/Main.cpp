@@ -43,21 +43,10 @@ int WINAPI wWinMain(HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow
         {
             if (event.type == Event::Closed) exit = true;
         }
-    // Camera movement
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::W)) {
-
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::A)) {
-
-        }
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::S)) {
-
-        }
-
-        if (sf::Keyboard::isKeyPressed(sf::Keyboard::D)) {
-
-        }
-		
+    
+        // Handle real-time input
+        view.get_camera().handle_input(window, delta_time);
+        
         view.update ();
 
         view.render ();
