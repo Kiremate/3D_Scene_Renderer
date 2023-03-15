@@ -1,6 +1,9 @@
 #pragma once
 #include "math.hpp"
-#include <SFML/Window/Event.hpp>
+#include <SFML/Window.hpp>
+#include <glm/glm.hpp>
+#include <glm/gtc/matrix_transform.hpp>
+#include <glm/gtc/quaternion.hpp>
 using namespace example;
 
 struct Transform {
@@ -60,7 +63,7 @@ class Camera {
 public:
   Matrix44 get_view_matrix();
   Matrix44 get_inverse_transform_matrix();
-    void handle_input(const sf::Window& window, float delta_time);
+    void handle_input(sf::Window& window, float delta_time);
     Camera() = default;
     Camera(float fov, float near_plane, float far_plane, Vector3f position, Vector3f target, Vector3f up)
         : fov(fov),
@@ -82,7 +85,7 @@ public:
         transform.rotation = Quaternion(rotation_matrix);
     }
     void move_camera(float x, float y, float z);
-
+    void update_directions();
 
 private:
     float fov;
@@ -90,9 +93,14 @@ private:
     float far_plane;
     float move_speed_ = 5.0f;
     float rotation_speed_ = 0.1f;
+    float current_pitch = 0.0f;
+    float current_yaw = 0.0f;
+    float look_speed = 0.1f; 
+    float min_mouse_delta = 0.5f;
     Transform transform;
     Vector3f view_direction;
     Vector3f up_direction;
+	Vector3f right_direction;
     bool mouse_captured = false;
     Vector2f last_mouse_position;
 };
