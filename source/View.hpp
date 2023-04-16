@@ -19,11 +19,11 @@
         using  std::vector;
         using argb::Rgb888;
         using argb::Color_Buffer;
-
+      
         class View
         {
         private:
-
+           
             typedef Rgb888                Color;
             typedef Color_Buffer< Color > Color_Buffer;
             typedef Point4f               Vertex;
@@ -50,7 +50,14 @@
             unsigned height;
 
         public:
-
+            struct Light
+            {
+                Vector3f position;
+                Color color;
+                Light(const Vector3f& position_, const Color& color_)
+                    : position(position_), color(color_)
+                {}
+            };
             View(unsigned width, unsigned height);
 
             void update ();
@@ -58,7 +65,11 @@
             void transform_vertices();
             Camera& get_camera();
         private:
-
+            Light light;
+            Color ambient_color;
+            Vector3f get_normal(const Vertex& v0, const Vertex& v1, const Vertex& v2);
+            Color add_colors(const Color& c1, const Color& c2) const;
+            Color multiply_color_by_scalar(const Color& c, float scalar) const;
             bool  is_frontface (const Vertex * const projected_vertices, const int * const indices);
             float rand_clamp   () { return float(rand () & 0xff) * 0.0039215f; }
 

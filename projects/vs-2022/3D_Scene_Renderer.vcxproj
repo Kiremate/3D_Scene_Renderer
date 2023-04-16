@@ -151,11 +151,16 @@
   <ItemGroup>
     <ClCompile Include="..\..\source\Camera.cpp" />
     <ClCompile Include="..\..\source\Main.cpp" />
+    <ClCompile Include="..\..\source\Mesh.cpp" />
+    <ClCompile Include="..\..\source\Node.cpp" />
     <ClCompile Include="..\..\source\View.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Camera.h" />
     <ClInclude Include="..\..\source\math.hpp" />
+    <ClInclude Include="..\..\source\Mesh.h" />
+    <ClInclude Include="..\..\source\MeshData.h" />
+    <ClInclude Include="..\..\source\Node.h" />
     <ClInclude Include="..\..\source\Rasterizer.hpp" />
     <ClInclude Include="..\..\source\View.hpp" />
   </ItemGroup>
