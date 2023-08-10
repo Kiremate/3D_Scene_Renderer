@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__main_8cpp" xml:lang="en-US">
+<title>source/Main.cpp File Reference</title>
+<indexterm><primary>source/Main.cpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;View.hpp&quot;<?linebreak?>#include &lt;SFML/Window.hpp&gt;<?linebreak?>#include &lt;windows.h&gt;<?linebreak?></programlisting><simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>int WINAPI <link linkend="__main_8cpp_1a7bfbd894001bc147e426623dad55c078">wWinMain</link> (HINSTANCE hInstance, HINSTANCE, PWSTR pCmdLine, int nCmdShow)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="__main_8cpp_1a7bfbd894001bc147e426623dad55c078"/><section>
+    <title>wWinMain()</title>
+<indexterm><primary>wWinMain</primary><secondary>Main.cpp</secondary></indexterm>
+<indexterm><primary>Main.cpp</primary><secondary>wWinMain</secondary></indexterm>
+<para><computeroutput>int WINAPI wWinMain (HINSTANCE hInstance, HINSTANCE , PWSTR pCmdLine, int nCmdShow)</computeroutput></para></section>
+</section>
+</section>

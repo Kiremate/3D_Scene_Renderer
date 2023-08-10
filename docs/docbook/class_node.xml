@@ -1,0 +1,165 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_node" xml:lang="en-US">
+<title>Node Class Reference</title>
+<indexterm><primary>Node</primary></indexterm>
+<para>
+
+<para>Class representing a node in a scene graph. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Node.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Node:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_node.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_node_1ae3d68123f770b80e09261594d99eedb5">Node</link> (const glm::mat4 &amp;<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>=glm::mat4(1.0f))</para>
+
+<para>Constructor for <link linkend="_class_node">Node</link>. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_node_1a36ab59d094fe2dd2b2d8087c7fe3c955">addChild</link> (std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; child)</para>
+
+<para>Adds a child to this node. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::vector&lt; std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; &gt; <link linkend="_class_node_1a44f29c4de616705e4f8405e80d869825">children</link></para>
+
+<para>This node&apos;s children. </para>
+</listitem>
+            <listitem><para>std::weak_ptr&lt; <link linkend="_class_node">Node</link> &gt; <link linkend="_class_node_1a99e65d6b9186c551371b95ea3845b6fd">parent</link></para>
+
+<para>This node&apos;s parent. </para>
+</listitem>
+            <listitem><para>glm::mat4 <link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link></para>
+
+<para>Stores the transformation matrix for this node. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class representing a node in a scene graph. </para>
+
+
+
+<para>The <link linkend="_class_node">Node</link> class is designed to be part of a scene graph, containing transformation information as well as a list of child nodes. It&apos;s capable of constructing a hierarchical representation of a 3D scene, where each node can have many children but only one parent. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_node_1ae3d68123f770b80e09261594d99eedb5"/><section>
+    <title>Node()</title>
+<indexterm><primary>Node</primary><secondary>Node</secondary></indexterm>
+<indexterm><primary>Node</primary><secondary>Node</secondary></indexterm>
+<para><computeroutput>Node::Node (const glm::mat4 &amp; transformation = <computeroutput>glm::mat4(1.0f)</computeroutput>
+)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Constructor for <link linkend="_class_node">Node</link>. </para>
+</para>
+
+<para>Creates a new <link linkend="_class_node">Node</link> with a given transformation matrix. If no matrix is provided, defaults to the identity matrix.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>transformation</entry><entry>
+<para>Initial transformation matrix for this node. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_node_1a36ab59d094fe2dd2b2d8087c7fe3c955"/><section>
+    <title>addChild()</title>
+<indexterm><primary>addChild</primary><secondary>Node</secondary></indexterm>
+<indexterm><primary>Node</primary><secondary>addChild</secondary></indexterm>
+<para><computeroutput>void Node::addChild (std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; child)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Adds a child to this node. </para>
+</para>
+
+<para>The child node will be added to the list of children for this node, and its parent will be set to this node.</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>child</entry><entry>
+<para>The child node to be added. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_node_1a44f29c4de616705e4f8405e80d869825"/><section>
+    <title>children</title>
+<indexterm><primary>children</primary><secondary>Node</secondary></indexterm>
+<indexterm><primary>Node</primary><secondary>children</secondary></indexterm>
+<para><computeroutput>std::vector&lt;std::shared_ptr&lt;<link linkend="_class_node">Node</link>&gt; &gt; Node::children</computeroutput></para><para>
+
+<para>This node&apos;s children. </para>
+</para>
+</section>
+<anchor xml:id="_class_node_1a99e65d6b9186c551371b95ea3845b6fd"/><section>
+    <title>parent</title>
+<indexterm><primary>parent</primary><secondary>Node</secondary></indexterm>
+<indexterm><primary>Node</primary><secondary>parent</secondary></indexterm>
+<para><computeroutput>std::weak_ptr&lt;<link linkend="_class_node">Node</link>&gt; Node::parent</computeroutput></para><para>
+
+<para>This node&apos;s parent. </para>
+</para>
+</section>
+<anchor xml:id="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9"/><section>
+    <title>transformation</title>
+<indexterm><primary>transformation</primary><secondary>Node</secondary></indexterm>
+<indexterm><primary>Node</primary><secondary>transformation</secondary></indexterm>
+<para><computeroutput>glm::mat4 Node::transformation</computeroutput></para><para>
+
+<para>Stores the transformation matrix for this node. </para>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+source/<link linkend="__node_8h">Node.h</link></section>
+</section>

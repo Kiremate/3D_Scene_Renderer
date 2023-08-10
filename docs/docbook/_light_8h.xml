@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__light_8h" xml:lang="en-US">
+<title>source/Light.h File Reference</title>
+<indexterm><primary>source/Light.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;math.hpp&quot;<?linebreak?>#include &lt;Color_Buffer.hpp&gt;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_light">Light</link></para>
+
+<para>Represents a light source in a 3D scene. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef Rgb888 <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf"/><section>
+    <title>Color</title>
+<indexterm><primary>Color</primary><secondary>Light.h</secondary></indexterm>
+<indexterm><primary>Light.h</primary><secondary>Color</secondary></indexterm>
+<para><computeroutput>typedef Rgb888 <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link></computeroutput></para></section>
+</section>
+</section>

@@ -1,0 +1,406 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__rasterizer_8hpp_source" xml:lang="en-US">
+<title>Rasterizer.hpp</title>
+<indexterm><primary>source/Rasterizer.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+2 <emphasis role="comment">//&#32;Este&#32;código&#32;es&#32;de&#32;dominio&#32;público.</emphasis>
+3 <emphasis role="comment">//&#32;angel.rodriguez@esne.edu</emphasis>
+4 <emphasis role="comment">//&#32;2013.12&#32;-&#32;2021.03</emphasis>
+5 
+6 <emphasis role="preprocessor">#ifndef&#32;RASTERIZER_HEADER</emphasis>
+7 <emphasis role="preprocessor">#define&#32;RASTERIZER_HEADER</emphasis>
+8 
+9 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;algorithm&gt;</emphasis>
+10 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;ciso646&gt;</emphasis>
+11 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;cstdint&gt;</emphasis>
+12 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;limits&gt;</emphasis>
+13 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_math_8hpp">math.hpp</link>&quot;</emphasis>
+14 
+15 &#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceexample">example</link>
+16 &#32;&#32;&#32;&#32;{
+17 
+18 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&gt;
+19 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_classexample_1_1_rasterizer">Rasterizer</link>
+20 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+21 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+22 
+23 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link>;
+24 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;<emphasis role="keyword">typename</emphasis>&#32;Color_Buffer::Color&#32;<link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link>;
+25 
+26 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+27 
+28 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link>&#32;&amp;&#32;color_buffer;
+29 
+30 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;offset_cache0[2160];
+31 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;offset_cache1[2160];
+32 
+33 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;z_cache0[2160];
+34 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">static</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;z_cache1[2160];
+35 
+36 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link>&#32;color;
+37 
+38 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;&#32;int&#32;&gt;&#32;z_buffer;
+39 
+40 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+41 
+42 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer_1abd4a31e3b3bc495d66c0d05df25885a1">Rasterizer</link>(<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link>&#32;&amp;&#32;target)
+43 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:
+44 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer(target),
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z_buffer(target.get_width&#32;()&#32;*&#32;target.get_height&#32;())
+46 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+47 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+48 
+49 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link>&#32;&amp;&#32;<link linkend="_classexample_1_1_rasterizer_1a882b7468bc75089cb3bdb6cf8f252246">get_color_buffer</link>&#32;()<emphasis role="keyword">&#32;const</emphasis>
+50 <emphasis role="keyword">&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;</emphasis>{
+51 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;(color_buffer);
+52 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+53 
+54 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+55 
+56 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1a6770b1e636262a2977ee2ccca726b134">set_color</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link>&#32;&amp;&#32;new_color)
+57 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+58 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color&#32;=&#32;new_color;
+59 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+60 
+61 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1aaa760e89fe897e351f3e1f54588f512c">set_color</link>&#32;(<emphasis role="keywordtype">float</emphasis>&#32;r,&#32;<emphasis role="keywordtype">float</emphasis>&#32;g,&#32;<emphasis role="keywordtype">float</emphasis>&#32;b)
+62 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+63 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer.set&#32;(r,&#32;g,&#32;b);
+64 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+65 
+66 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1a98cb1b7667d18c7038c964e5551d6d56">clear</link>&#32;()
+67 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+68 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer.clear&#32;({&#32;0,&#32;0,&#32;0&#32;});
+69 
+70 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*&#32;z&#32;=&#32;z_buffer.data&#32;(),&#32;*&#32;end&#32;=&#32;z&#32;+&#32;z_buffer.size&#32;();&#32;z&#32;!=&#32;end;&#32;z++)
+71 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+72 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*z&#32;=&#32;std::numeric_limits&lt;&#32;int&#32;&gt;::max&#32;();
+73 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+74 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+75 
+76 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1ae8d8136137381542b9e1ac4ddc410aaa">fill_convex_polygon</link>
+77 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(
+78 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link>&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;vertices,&#32;
+79 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_begin,&#32;
+80 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_end
+81 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);
+82 
+83 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1a54faf27d2f9ac25948051944bd5b5d0d">fill_convex_polygon_z_buffer</link>
+84 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(
+85 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link>&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;vertices,&#32;
+86 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_begin,&#32;
+87 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_end
+88 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;);
+89 
+90 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+91 
+92 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">typename</emphasis>&#32;VALUE_TYPE,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;SHIFT&#32;&gt;
+93 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;interpolate&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*&#32;cache,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v0,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v1,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y_min,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y_max);
+94 
+95 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+96 
+97 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&gt;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::offset_cache0</link>[2160];
+98 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&gt;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::offset_cache1</link>[2160];
+99 
+100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&gt;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::z_cache0</link>[2160];
+101 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;COLOR_BUFFER_TYPE&#32;&gt;&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::z_cache1</link>[2160];
+102 
+103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;&#32;COLOR_BUFFER_TYPE&#32;&gt;
+104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1ae8d8136137381542b9e1ac4ddc410aaa">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::fill_convex_polygon</link>
+105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(
+106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link>&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;vertices,&#32;
+107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_begin,&#32;
+108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_end
+109 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;)
+110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+111 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;algunos&#32;valores&#32;de&#32;interés:</emphasis>
+112 
+113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;pitch&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;color_buffer.get_width&#32;();
+114 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;offset_cache0&#32;=&#32;this-&gt;offset_cache0;
+115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;offset_cache1&#32;=&#32;this-&gt;offset_cache1;
+116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;indices_back&#32;&#32;=&#32;indices_end&#32;-&#32;1;
+117 
+118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;busca&#32;el&#32;vértice&#32;de&#32;inicio&#32;(el&#32;que&#32;tiene&#32;menor&#32;Y)&#32;y&#32;el&#32;de&#32;terminación&#32;(el&#32;que&#32;tiene&#32;mayor&#32;Y):</emphasis>
+119 
+120 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;start_index&#32;&#32;&#32;=&#32;indices_begin;
+121 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;start_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;vertices[*start_index][1];
+122 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;end_index&#32;&#32;&#32;&#32;&#32;=&#32;indices_begin;
+123 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;end_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;start_y;
+124 
+125 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;index_iterator&#32;=&#32;start_index;&#32;++index_iterator&#32;&lt;&#32;indices_end;&#32;)
+126 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+127 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current_y&#32;=&#32;vertices[*index_iterator][1];
+128 
+129 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_y&#32;&lt;&#32;start_y)
+130 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+131 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start_y&#32;&#32;&#32;&#32;&#32;=&#32;current_y;&#32;
+132 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start_index&#32;=&#32;index_iterator;
+133 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+134 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+135 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_y&#32;&gt;&#32;end_y)
+136 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+137 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;end_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;current_y;
+138 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;end_index&#32;&#32;&#32;=&#32;index_iterator;
+139 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+140 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+141 
+142 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;las&#32;coordenadas&#32;X&#32;de&#32;los&#32;lados&#32;que&#32;van&#32;desde&#32;el&#32;vértice&#32;con&#32;Y&#32;menor&#32;al</emphasis>
+143 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;vértice&#32;con&#32;Y&#32;mayor&#32;en&#32;sentido&#32;antihorario:</emphasis>
+144 
+145 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;current_index&#32;=&#32;start_index;
+146 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;&#32;&#32;&#32;next_index&#32;=&#32;start_index&#32;&gt;&#32;indices_begin&#32;?&#32;start_index&#32;-&#32;1&#32;:&#32;indices_back;
+147 
+148 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;y0&#32;=&#32;vertices[*current_index][1];
+149 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;y1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][1];
+150 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;o0&#32;=&#32;vertices[*current_index][0]&#32;+&#32;y0&#32;*&#32;pitch;
+151 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;o1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+152 
+153 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(<emphasis role="keyword">true</emphasis>)
+154 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+155 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int64_t,&#32;32&#32;&gt;&#32;(offset_cache0,&#32;o0,&#32;o1,&#32;y0,&#32;y1);
+156 
+157 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;indices_begin)&#32;current_index&#32;=&#32;indices_back;&#32;<emphasis role="keywordflow">else</emphasis>&#32;current_index--;
+158 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;end_index&#32;&#32;&#32;&#32;)&#32;<emphasis role="keywordflow">break</emphasis>;
+159 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;&#32;&#32;next_index&#32;==&#32;indices_begin)&#32;next_index&#32;&#32;&#32;&#32;=&#32;indices_back;&#32;<emphasis role="keywordflow">else</emphasis>&#32;&#32;&#32;&#32;next_index--;
+160 
+161 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;y1;
+162 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*next_index][1];
+163 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;o1;
+164 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+165 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+166 
+167 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;end_offset&#32;=&#32;o1;
+168 
+169 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;las&#32;coordenadas&#32;X&#32;de&#32;los&#32;lados&#32;que&#32;van&#32;desde&#32;el&#32;vértice&#32;con&#32;Y&#32;menor&#32;al</emphasis>
+170 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;vértice&#32;con&#32;Y&#32;mayor&#32;en&#32;sentido&#32;horario:</emphasis>
+171 
+172 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current_index&#32;=&#32;start_index;
+173 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;next_index&#32;=&#32;start_index&#32;&lt;&#32;indices_back&#32;?&#32;start_index&#32;+&#32;1&#32;:&#32;indices_begin;
+174 
+175 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;vertices[*current_index][1];
+176 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][1];
+177 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;vertices[*current_index][0]&#32;+&#32;y0&#32;*&#32;pitch;
+178 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+179 
+180 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(<emphasis role="keyword">true</emphasis>)
+181 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+182 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int64_t,&#32;32&#32;&gt;&#32;(offset_cache1,&#32;o0,&#32;o1,&#32;y0,&#32;y1);
+183 
+184 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;indices_back)&#32;current_index&#32;=&#32;indices_begin;&#32;<emphasis role="keywordflow">else</emphasis>&#32;current_index++;
+185 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;end_index&#32;&#32;&#32;)&#32;<emphasis role="keywordflow">break</emphasis>;
+186 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;&#32;&#32;next_index&#32;==&#32;indices_back)&#32;next_index&#32;&#32;&#32;&#32;=&#32;indices_begin;&#32;<emphasis role="keywordflow">else</emphasis>&#32;next_index++;
+187 
+188 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;y1;
+189 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*next_index][1];
+190 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;o1;
+191 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+192 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+193 
+194 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&gt;&#32;end_offset)&#32;end_offset&#32;=&#32;o1;
+195 
+196 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;rellenan&#32;las&#32;scanlines&#32;desde&#32;la&#32;que&#32;tiene&#32;menor&#32;Y&#32;hasta&#32;la&#32;que&#32;tiene&#32;mayor&#32;Y:</emphasis>
+197 
+198 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;offset_cache0&#32;+=&#32;start_y;
+199 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;offset_cache1&#32;+=&#32;start_y;
+200 
+201 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;y&#32;=&#32;start_y;&#32;y&#32;&lt;&#32;end_y;&#32;y++)
+202 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+203 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;*offset_cache0++;
+204 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;*offset_cache1++;
+205 
+206 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o0&#32;&lt;&#32;o1)
+207 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+208 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(o0&#32;&lt;&#32;o1)&#32;color_buffer.set_pixel&#32;(o0++);
+209 
+210 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o0&#32;&gt;&#32;end_offset)&#32;<emphasis role="keywordflow">break</emphasis>;
+211 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+212 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+213 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+214 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(o1&#32;&lt;&#32;o0)&#32;color_buffer.set_pixel&#32;(o1++);
+215 
+216 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&gt;&#32;end_offset)&#32;<emphasis role="keywordflow">break</emphasis>;
+217 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+218 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+219 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+220 
+221 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;&#32;COLOR_BUFFER_TYPE&#32;&gt;
+222 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer_1a54faf27d2f9ac25948051944bd5b5d0d">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::fill_convex_polygon_z_buffer</link>
+223 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;(
+224 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link>&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;vertices,&#32;
+225 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_begin,&#32;
+226 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;&#32;&#32;*&#32;<emphasis role="keyword">const</emphasis>&#32;indices_end
+227 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;)
+228 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+229 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;algunos&#32;valores&#32;de&#32;interés:</emphasis>
+230 
+231 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;pitch&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;color_buffer.get_width&#32;();
+232 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;offset_cache0&#32;=&#32;this-&gt;offset_cache0;
+233 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;offset_cache1&#32;=&#32;this-&gt;offset_cache1;
+234 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;z_cache0&#32;&#32;&#32;&#32;&#32;&#32;=&#32;this-&gt;z_cache0;
+235 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;z_cache1&#32;&#32;&#32;&#32;&#32;&#32;=&#32;this-&gt;z_cache1;
+236 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;indices_back&#32;&#32;=&#32;indices_end&#32;-&#32;1;
+237 
+238 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;busca&#32;el&#32;vértice&#32;de&#32;inicio&#32;(el&#32;que&#32;tiene&#32;menor&#32;Y)&#32;y&#32;el&#32;de&#32;terminación&#32;(el&#32;que&#32;tiene&#32;mayor&#32;Y):</emphasis>
+239 
+240 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;start_index&#32;&#32;&#32;=&#32;indices_begin;
+241 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;start_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;vertices[*start_index][1];
+242 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;end_index&#32;&#32;&#32;&#32;&#32;=&#32;indices_begin;
+243 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;&#32;&#32;end_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;start_y;
+244 
+245 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;index_iterator&#32;=&#32;start_index;&#32;++index_iterator&#32;&lt;&#32;indices_end;&#32;)
+246 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+247 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;current_y&#32;=&#32;vertices[*index_iterator][1];
+248 
+249 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_y&#32;&lt;&#32;start_y)
+250 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+251 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start_y&#32;&#32;&#32;&#32;&#32;=&#32;current_y;&#32;
+252 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;start_index&#32;=&#32;index_iterator;
+253 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+254 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+255 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_y&#32;&gt;&#32;end_y)
+256 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+257 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;end_y&#32;&#32;&#32;&#32;&#32;&#32;&#32;=&#32;current_y;
+258 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;end_index&#32;&#32;&#32;=&#32;index_iterator;
+259 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+260 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+261 
+262 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;las&#32;coordenadas&#32;X&#32;de&#32;los&#32;lados&#32;que&#32;van&#32;desde&#32;el&#32;vértice&#32;con&#32;Y&#32;menor&#32;al</emphasis>
+263 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;vértice&#32;con&#32;Y&#32;mayor&#32;en&#32;sentido&#32;antihorario:</emphasis>
+264 
+265 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;current_index&#32;=&#32;start_index;
+266 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;*&#32;&#32;&#32;&#32;next_index&#32;=&#32;start_index&#32;&gt;&#32;indices_begin&#32;?&#32;start_index&#32;-&#32;1&#32;:&#32;indices_back;
+267 
+268 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;y0&#32;=&#32;vertices[*current_index][1];
+269 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;y1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][1];
+270 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;z0&#32;=&#32;vertices[*current_index][2];
+271 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;z1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][2];
+272 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;o0&#32;=&#32;vertices[*current_index][0]&#32;+&#32;y0&#32;*&#32;pitch;
+273 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;o1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+274 
+275 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(<emphasis role="keyword">true</emphasis>)
+276 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+277 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int64_t,&#32;32&#32;&gt;&#32;(offset_cache0,&#32;o0,&#32;o1,&#32;y0,&#32;y1);
+278 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int32_t,&#32;&#32;0&#32;&gt;&#32;(&#32;&#32;&#32;&#32;&#32;z_cache0,&#32;z0,&#32;z1,&#32;y0,&#32;y1);
+279 
+280 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;indices_begin)&#32;current_index&#32;=&#32;indices_back;&#32;<emphasis role="keywordflow">else</emphasis>&#32;current_index--;
+281 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;end_index&#32;&#32;&#32;&#32;)&#32;<emphasis role="keywordflow">break</emphasis>;
+282 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;&#32;&#32;next_index&#32;==&#32;indices_begin)&#32;next_index&#32;&#32;&#32;&#32;=&#32;indices_back;&#32;<emphasis role="keywordflow">else</emphasis>&#32;&#32;&#32;&#32;next_index--;
+283 
+284 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;y1;
+285 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*next_index][1];
+286 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z0&#32;=&#32;z1;
+287 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z1&#32;=&#32;vertices[*next_index][2];
+288 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;o1;
+289 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+290 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+291 
+292 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;end_offset&#32;=&#32;o1;
+293 
+294 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;cachean&#32;las&#32;coordenadas&#32;X&#32;de&#32;los&#32;lados&#32;que&#32;van&#32;desde&#32;el&#32;vértice&#32;con&#32;Y&#32;menor&#32;al</emphasis>
+295 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;vértice&#32;con&#32;Y&#32;mayor&#32;en&#32;sentido&#32;horario:</emphasis>
+296 
+297 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;current_index&#32;=&#32;start_index;
+298 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;next_index&#32;=&#32;start_index&#32;&lt;&#32;indices_back&#32;?&#32;start_index&#32;+&#32;1&#32;:&#32;indices_begin;
+299 
+300 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;vertices[*current_index][1];
+301 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][1];
+302 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z0&#32;=&#32;vertices[*current_index][2];
+303 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][2];
+304 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;vertices[*current_index][0]&#32;+&#32;y0&#32;*&#32;pitch;
+305 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*&#32;&#32;&#32;next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+306 
+307 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(<emphasis role="keyword">true</emphasis>)
+308 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+309 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int64_t,&#32;32&#32;&gt;&#32;(offset_cache1,&#32;o0,&#32;o1,&#32;y0,&#32;y1);
+310 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;interpolate&lt;&#32;int32_t,&#32;&#32;0&#32;&gt;&#32;(&#32;&#32;&#32;&#32;&#32;z_cache1,&#32;z0,&#32;z1,&#32;y0,&#32;y1);
+311 
+312 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;indices_back)&#32;current_index&#32;=&#32;indices_begin;&#32;<emphasis role="keywordflow">else</emphasis>&#32;current_index++;
+313 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(current_index&#32;==&#32;end_index&#32;&#32;&#32;)&#32;<emphasis role="keywordflow">break</emphasis>;
+314 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(&#32;&#32;&#32;next_index&#32;==&#32;indices_back)&#32;next_index&#32;&#32;&#32;&#32;=&#32;indices_begin;&#32;<emphasis role="keywordflow">else</emphasis>&#32;next_index++;
+315 
+316 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y0&#32;=&#32;y1;
+317 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;y1&#32;=&#32;vertices[*next_index][1];
+318 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z0&#32;=&#32;z1;
+319 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z1&#32;=&#32;vertices[*next_index][2];
+320 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;o1;
+321 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;vertices[*next_index][0]&#32;+&#32;y1&#32;*&#32;pitch;
+322 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+323 
+324 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&gt;&#32;end_offset)&#32;end_offset&#32;=&#32;o1;
+325 
+326 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="comment">//&#32;Se&#32;rellenan&#32;las&#32;scanlines&#32;desde&#32;la&#32;que&#32;tiene&#32;menor&#32;Y&#32;hasta&#32;la&#32;que&#32;tiene&#32;mayor&#32;Y:</emphasis>
+327 
+328 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;offset_cache0&#32;+=&#32;start_y;
+329 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;offset_cache1&#32;+=&#32;start_y;
+330 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z_cache0&#32;+=&#32;start_y;
+331 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z_cache1&#32;+=&#32;start_y;
+332 
+333 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;y&#32;=&#32;start_y;&#32;y&#32;&lt;&#32;end_y;&#32;y++)
+334 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+335 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0&#32;=&#32;*offset_cache0++;
+336 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1&#32;=&#32;*offset_cache1++;
+337 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z0&#32;=&#32;*z_cache0++;
+338 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z1&#32;=&#32;*z_cache1++;
+339 
+340 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o0&#32;&lt;&#32;o1)
+341 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+342 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;z_step&#32;=&#32;(z1&#32;-&#32;z0)&#32;/&#32;(o1&#32;-&#32;o0);
+343 
+344 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(o0&#32;&lt;&#32;o1)
+345 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+346 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o0&#32;&gt;=&#32;0&#32;&amp;&amp;&#32;o0&#32;&lt;&#32;z_buffer.size()&#32;&amp;&amp;&#32;z0&#32;&lt;&#32;z_buffer[o0])
+347 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+348 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer.set_pixel(o0,&#32;color);
+349 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z_buffer[o0]&#32;=&#32;z0;
+350 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+351 
+352 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z0&#32;+=&#32;z_step;
+353 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o0++;
+354 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+355 
+356 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o0&#32;&gt;&#32;end_offset)&#32;<emphasis role="keywordflow">break</emphasis>;
+357 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+358 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">else</emphasis>
+359 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&lt;&#32;o0)
+360 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+361 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">int</emphasis>&#32;z_step&#32;=&#32;(z0&#32;-&#32;z1)&#32;/&#32;(o0&#32;-&#32;o1);
+362 
+363 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">while</emphasis>&#32;(o1&#32;&lt;&#32;o0)
+364 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+365 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&gt;=&#32;0&#32;&amp;&amp;&#32;o1&#32;&lt;&#32;z_buffer.size()&#32;&amp;&amp;&#32;z1&#32;&lt;&#32;z_buffer[o1])
+366 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+367 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer.set_pixel(o1,&#32;color);
+368 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z_buffer[o1]&#32;=&#32;z1;
+369 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+370 
+371 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;z1&#32;+=&#32;z_step;
+372 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;o1++;
+373 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+374 
+375 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(o1&#32;&gt;&#32;end_offset)&#32;<emphasis role="keywordflow">break</emphasis>;
+376 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+377 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+378 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+379 
+380 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;&#32;COLOR_BUFFER_TYPE&#32;&gt;
+381 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">typename</emphasis>&#32;VALUE_TYPE,&#32;<emphasis role="keywordtype">size_t</emphasis>&#32;SHIFT&#32;&gt;
+382 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; COLOR_BUFFER_TYPE &gt;::interpolate</link>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*&#32;cache,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v0,&#32;<emphasis role="keywordtype">int</emphasis>&#32;v1,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y_min,&#32;<emphasis role="keywordtype">int</emphasis>&#32;y_max)
+383 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+384 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">if</emphasis>&#32;(y_max&#32;&gt;&#32;y_min)
+385 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+386 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VALUE_TYPE&#32;value&#32;=&#32;(VALUE_TYPE(&#32;&#32;&#32;&#32;&#32;v0)&#32;&lt;&lt;&#32;SHIFT);
+387 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;VALUE_TYPE&#32;step&#32;&#32;=&#32;(VALUE_TYPE(v1&#32;-&#32;v0)&#32;&lt;&lt;&#32;SHIFT)&#32;/&#32;(y_max&#32;-&#32;y_min);
+388 
+389 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">for</emphasis>&#32;(<emphasis role="keywordtype">int</emphasis>&#32;*&#32;iterator&#32;=&#32;cache&#32;+&#32;y_min,&#32;*&#32;end&#32;=&#32;cache&#32;+&#32;y_max;&#32;iterator&#32;&lt;=&#32;end;&#32;)
+390 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+391 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*iterator++&#32;=&#32;int(value&#32;&gt;&gt;&#32;SHIFT);
+392 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value&#32;+=&#32;step;
+393 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;*iterator++&#32;=&#32;int(value&#32;&gt;&gt;&#32;SHIFT);
+394 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;value&#32;+=&#32;step;
+395 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+396 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+397 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+398 
+399 &#32;&#32;&#32;&#32;}
+400 
+401 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

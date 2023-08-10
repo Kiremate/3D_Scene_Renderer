@@ -157,6 +157,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\..\source\Camera.h" />
+    <ClInclude Include="..\..\source\Light.h" />
     <ClInclude Include="..\..\source\math.hpp" />
     <ClInclude Include="..\..\source\Mesh.h" />
     <ClInclude Include="..\..\source\MeshData.h" />

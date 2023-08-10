@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_math_8hpp_source" xml:lang="en-US">
+<title>math.hpp</title>
+<indexterm><primary>source/math.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+2 <emphasis role="comment">//&#32;Este&#32;código&#32;es&#32;de&#32;dominio&#32;público.</emphasis>
+3 <emphasis role="comment">//&#32;angel.rodriguez@esne.edu</emphasis>
+4 <emphasis role="comment">//&#32;2016.01&#32;-&#32;2021.04</emphasis>
+5 
+6 <emphasis role="preprocessor">#ifndef&#32;MATH_HEADER</emphasis>
+7 <emphasis role="preprocessor">#define&#32;MATH_HEADER</emphasis>
+8 
+9 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;glm/glm.hpp&gt;</emphasis>
+10 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;glm/gtc/type_ptr.hpp&gt;</emphasis>
+11 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;glm/gtx/matrix_decompose.hpp&gt;</emphasis>
+12 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;glm/gtc/matrix_transform.hpp&gt;</emphasis>
+13 
+14 &#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceexample">example</link>
+15 &#32;&#32;&#32;&#32;{
+16 
+17 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec2&#32;<link linkend="_namespaceexample_1ad90f8f3531274de4a0fe19430613e60e">Vector2i</link>;
+18 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec3&#32;<link linkend="_namespaceexample_1a81ed02d00d816259b28772dfe5c45386">Vector3i</link>;
+19 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec4&#32;<link linkend="_namespaceexample_1a36c0eedce847c92c9fc1bbff133589c4">Vector4i</link>;
+20 
+21 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec2&#32;<link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link>;
+22 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec3&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>;
+23 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec4&#32;<link linkend="_namespaceexample_1ad17d21cecf3b746caf2cc766788b8ba5">Vector4f</link>;
+24 
+25 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::quat&#32;<link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link>;
+26 
+27 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::mat2&#32;<link linkend="_namespaceexample_1a2e0249a74f34d1df4a623db218f94916">Matrix22</link>;
+28 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::mat3&#32;<link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">Matrix33</link>;
+29 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::mat4&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>;
+30 
+31 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec2&#32;<link linkend="_namespaceexample_1a046b6d6e8854921890fe2ff850a87091">Point2i</link>;
+32 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec3&#32;<link linkend="_namespaceexample_1a09dcf2310fc4e1962059c40e6c5c7e3c">Point3i</link>;
+33 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::ivec4&#32;<link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link>;
+34 
+35 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec2&#32;<link linkend="_namespaceexample_1a79bd0e08d22b9ff8b6245a038db005ab">Point2f</link>;
+36 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec3&#32;<link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link>;
+37 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;glm::fvec4&#32;<link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link>;
+38 
+39 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">template</emphasis>&lt;&#32;<emphasis role="keyword">class</emphasis>&#32;CLASS&#32;&gt;
+40 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">float</emphasis>&#32;*&#32;<link linkend="_namespaceexample_1aeca69f22fd85743b08e15876bac6c6c2">get_values</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;CLASS&#32;&amp;&#32;<emphasis role="keywordtype">object</emphasis>)
+41 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+42 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::value_ptr(<emphasis role="keywordtype">object</emphasis>);
+43 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+44 
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a2d0fd19907e53053a9264c1f697c77d2">inverse</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix)
+46 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+47 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::inverse&#32;(matrix);
+48 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+49 
+50 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1aa4de4c0544b3da576cbb1efefa32ef47">transpose</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix)
+51 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+52 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::transpose&#32;(matrix);
+53 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+54 
+55 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a79b59711ac5e3012da1ee5f9a8a3b843">translate</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>&#32;&amp;&#32;displacement)
+56 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+57 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::translate&#32;(matrix,&#32;displacement);
+58 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+59 
+60 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>)
+61 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+62 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::scale&#32;(matrix,&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>(<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>,&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>,&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>));
+63 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+64 
+65 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keywordtype">float</emphasis>&#32;scale_x,&#32;<emphasis role="keywordtype">float</emphasis>&#32;scale_y,&#32;<emphasis role="keywordtype">float</emphasis>&#32;scale_z)
+66 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+67 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::scale&#32;(matrix,&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>(scale_x,&#32;scale_y,&#32;scale_z));
+68 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+69 
+70 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a7681dfa3ffe940ec3594bd5f5e93872c">rotate_around_x</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keywordtype">float</emphasis>&#32;angle)
+71 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+72 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::rotate&#32;(matrix,&#32;angle,&#32;glm::vec3(1.f,&#32;0.f,&#32;0.f));
+73 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+74 
+75 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a9e0fc20340a76b271e009682d4e16a03">rotate_around_y</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keywordtype">float</emphasis>&#32;angle)
+76 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+77 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::rotate&#32;(matrix,&#32;angle,&#32;glm::vec3(0.f,&#32;1.f,&#32;0.f));
+78 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+79 
+80 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1ac993f3beefb32cc30bec3b3b8fb7f8e8">rotate_around_z</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;matrix,&#32;<emphasis role="keywordtype">float</emphasis>&#32;angle)
+81 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+82 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::rotate&#32;(matrix,&#32;angle,&#32;glm::vec3(0.f,&#32;0.f,&#32;1.f));
+83 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+84 
+85 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a0d5115275471f5dadce339f509b5c747">perspective</link>&#32;(<emphasis role="keywordtype">float</emphasis>&#32;fov,&#32;<emphasis role="keywordtype">float</emphasis>&#32;near_d,&#32;<emphasis role="keywordtype">float</emphasis>&#32;far_d,&#32;<emphasis role="keywordtype">float</emphasis>&#32;aspect_ratio)
+86 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+87 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::perspective&#32;(fov,&#32;aspect_ratio,&#32;near_d,&#32;far_d);
+88 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+89 
+90 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link>&#32;<link linkend="_namespaceexample_1a42eb2789cfcc3face6e8a59e9dade0d1">extract_translation</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">Matrix33</link>&#32;&amp;&#32;transformation)
+91 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+92 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>&#32;&amp;&#32;translation&#32;=&#32;transformation[2];
+93 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link>(translation[0],&#32;translation[1]);
+94 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+95 
+96 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>&#32;<link linkend="_namespaceexample_1a42eb2789cfcc3face6e8a59e9dade0d1">extract_translation</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;transformation)
+97 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+98 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">const</emphasis>&#32;&#32;<link linkend="_namespaceexample_1ad17d21cecf3b746caf2cc766788b8ba5">Vector4f</link>&#32;&amp;&#32;translation&#32;=&#32;transformation[3];
+99 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>(translation[0],&#32;translation[1],&#32;translation[2]);
+100 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+101 
+102 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link>&#32;<link linkend="_namespaceexample_1a9c8265944df68f0db2ef847c53d05ab5">extract_rotation</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;&amp;&#32;transformation)
+103 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+104 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec3&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>;
+105 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::quat&#32;rotation;
+106 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec3&#32;translation;
+107 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec3&#32;skew;
+108 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec4&#32;<link linkend="_namespaceexample_1a0d5115275471f5dadce339f509b5c747">perspective</link>;
+109 
+110 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::decompose&#32;(transformation,&#32;<link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link>,&#32;rotation,&#32;translation,&#32;skew,&#32;<link linkend="_namespaceexample_1a0d5115275471f5dadce339f509b5c747">perspective</link>);
+111 
+112 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;rotation;
+113 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+114 
+115 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&#32;<link linkend="_namespaceexample_1a72a70d5eafe8ff1e45c8f2165e2ad94f">look_at</link>&#32;(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link>&#32;&amp;&#32;from,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link>&#32;&amp;&#32;to)
+116 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+117 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::lookAt&#32;(from,&#32;to,&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>(0.f,&#32;1.f,&#32;0.f));
+118 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;}
+119 
+120 &#32;&#32;&#32;&#32;}
+121 
+122 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

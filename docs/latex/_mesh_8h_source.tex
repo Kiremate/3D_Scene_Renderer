@@ -1,0 +1,40 @@
+\doxysection{Mesh.\+h}
+\hypertarget{_mesh_8h_source}{}\label{_mesh_8h_source}\index{source/Mesh.h@{source/Mesh.h}}
+\mbox{\hyperlink{_mesh_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_node_8h}{Node.h}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_data_8h}{MeshData.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_rasterizer_8hpp}{Rasterizer.hpp}}"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_camera_8h}{Camera.h}}"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_light_8h}{Light.h}}"{}}}
+\DoxyCodeLine{00008\ \textcolor{keyword}{using\ namespace\ }\mbox{\hyperlink{namespaceexample}{example}};}
+\DoxyCodeLine{00009\ \textcolor{keyword}{using\ \ }std::vector;}
+\DoxyCodeLine{00010\ \textcolor{keyword}{using\ }argb::Rgb888;}
+\DoxyCodeLine{00011\ \textcolor{keyword}{using\ }argb::Color\_Buffer;}
+\DoxyCodeLine{00019\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_mesh}{Mesh}}\ :\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_node}{Node}}}
+\DoxyCodeLine{00020\ \{}
+\DoxyCodeLine{00021\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{typedef}\ Rgb888\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ Color;}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{typedef}\ Color\_Buffer<\ Color\ >\ Color\_Buffer;}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{bool}\ \ is\_frontface(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a000dc8cdab85d4cfe6b220107e219efa}{Vertex}}*\ \textcolor{keyword}{const}\ projected\_vertices,\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{int}*\ \textcolor{keyword}{const}\ indices);}
+\DoxyCodeLine{00026\ \ \ \ \ \textcolor{keywordtype}{float}\ width;}
+\DoxyCodeLine{00027\ \ \ \ \ \textcolor{keywordtype}{float}\ height;}
+\DoxyCodeLine{00028\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00029\ \ \ \ \ \mbox{\hyperlink{classexample_1_1_mesh_data}{MeshData}}\ \mbox{\hyperlink{class_mesh_a5926a0196fa74e394d4c246fd34bb16b}{meshData}};\ \textcolor{comment}{//\ Contains\ all\ the\ vertex\ Info\ }}
+\DoxyCodeLine{00030\ \ \ \ \ \mbox{\hyperlink{class_camera}{Camera}}\&\ \mbox{\hyperlink{class_mesh_a1523855b508c03c7a7d04e71105a4dbb}{camera}};\ \textcolor{comment}{//\ Contains\ a\ reference\ to\ the\ existing\ Camera}}
+\DoxyCodeLine{00031\ \ \ \ \ Color\_Buffer\&\ \mbox{\hyperlink{class_mesh_a49fa28ffefcb70eadac4922f24256df1}{color\_buffer}};\ \textcolor{comment}{//\ Contains\ a\ reference\ to\ the\ existing\ Color\_Buffer}}
+\DoxyCodeLine{00032\ \ \ \ \ \mbox{\hyperlink{classexample_1_1_rasterizer}{Rasterizer<Color\_Buffer>}}\&\ \mbox{\hyperlink{class_mesh_a6cd1f196ccf4e43e75a5438fdcc3d986}{rasterizer}};\ \textcolor{comment}{//\ Contains\ a\ reference\ to\ the\ existing\ Rasterizer}}
+\DoxyCodeLine{00043\ \textcolor{comment}{}\ \ \ \ \mbox{\hyperlink{class_mesh}{Mesh}}(\textcolor{keyword}{const}\ std::string\&\ file\_path,\ \mbox{\hyperlink{class_camera}{Camera}}\&\ \mbox{\hyperlink{class_mesh_a1523855b508c03c7a7d04e71105a4dbb}{camera}},\ Color\_Buffer\&\ \mbox{\hyperlink{class_mesh_a49fa28ffefcb70eadac4922f24256df1}{color\_buffer}},\ \mbox{\hyperlink{classexample_1_1_rasterizer}{Rasterizer<Color\_Buffer>}}\&\ \mbox{\hyperlink{class_mesh_a6cd1f196ccf4e43e75a5438fdcc3d986}{rasterizer}},\ \textcolor{keywordtype}{float}\ width,\ \textcolor{keywordtype}{float}\ height);}
+\DoxyCodeLine{00051\ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}\ \mbox{\hyperlink{class_mesh_ad59a768b959b399e61be831f14e37074}{transform\_vector}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\&\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}\&\ vector)}
+\DoxyCodeLine{00052\ \ \ \ \ \{}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ glm::vec4\ temp\ =\ matrix\ *\ glm::vec4(vector,\ 0.0f);}
+\DoxyCodeLine{00054\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::vec3(temp);}
+\DoxyCodeLine{00055\ \ \ \ \ \}}
+\DoxyCodeLine{00059\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_ad98ece0a97bea870cf86e3009cdb02c5}{update}}();\ \textcolor{comment}{//\ Updates\ the\ Transform\ matrix}}
+\DoxyCodeLine{00066\ \textcolor{comment}{}\ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_mesh_acb5ca3d8dff24a83d04529f208e9fe22}{render}}(\textcolor{keyword}{const}\ \mbox{\hyperlink{struct_light}{Light}}\&\ light,\ Rgb888\ \ ambient\_lighting);\ \textcolor{comment}{//\ Renders\ the\ Mesh}}
+\DoxyCodeLine{00067\ \};}
+
+\end{DoxyCode}

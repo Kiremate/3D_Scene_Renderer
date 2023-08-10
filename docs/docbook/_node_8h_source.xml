@@ -1,0 +1,29 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__node_8h_source" xml:lang="en-US">
+<title>Node.h</title>
+<indexterm><primary>source/Node.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_math_8hpp">math.hpp</link>&quot;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__mesh_data_8h">MeshData.h</link>&quot;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&lt;memory&gt;</emphasis>
+15 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_node">Node</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;std::enable_shared_from_this&lt;Node&gt;
+16 {
+17 <emphasis role="keyword">public</emphasis>:
+18 &#32;&#32;&#32;&#32;std::vector&lt;std::shared_ptr&lt;Node&gt;&gt;&#32;<link linkend="_class_node_1a44f29c4de616705e4f8405e80d869825">children</link>;&#32;&#32;
+19 &#32;&#32;&#32;&#32;std::weak_ptr&lt;Node&gt;&#32;<link linkend="_class_node_1a99e65d6b9186c551371b95ea3845b6fd">parent</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+20 
+21 &#32;&#32;&#32;&#32;glm::mat4&#32;<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>;&#32;&#32;
+22 
+31 &#32;&#32;&#32;&#32;<link linkend="_class_node_1ae3d68123f770b80e09261594d99eedb5">Node</link>(<emphasis role="keyword">const</emphasis>&#32;glm::mat4&amp;&#32;<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>&#32;=&#32;glm::mat4(1.0f))
+32 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>(<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>)
+33 &#32;&#32;&#32;&#32;{}
+34 
+43 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_node_1a36ab59d094fe2dd2b2d8087c7fe3c955">addChild</link>(std::shared_ptr&lt;Node&gt;&#32;child)
+44 &#32;&#32;&#32;&#32;{
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;child-&gt;parent&#32;=&#32;shared_from_this();
+46 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_node_1a44f29c4de616705e4f8405e80d869825">children</link>.push_back(child);
+47 &#32;&#32;&#32;&#32;}
+48 
+49 };
+</programlisting></section>

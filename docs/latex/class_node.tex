@@ -1,0 +1,116 @@
+\doxysection{Node Class Reference}
+\hypertarget{class_node}{}\label{class_node}\index{Node@{Node}}
+
+
+Class representing a node in a scene graph.  
+
+
+
+
+{\ttfamily \#include $<$Node.\+h$>$}
+
+Inheritance diagram for Node\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_node}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_node_ae3d68123f770b80e09261594d99eedb5}{Node}} (const glm\+::mat4 \&\mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}}=glm\+::mat4(1.\+0f))
+\begin{DoxyCompactList}\small\item\em Constructor for \doxylink{class_node}{Node}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_node_a36ab59d094fe2dd2b2d8087c7fe3c955}{add\+Child}} (std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ child)
+\begin{DoxyCompactList}\small\item\em Adds a child to this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::vector$<$ std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ $>$ \mbox{\hyperlink{class_node_a44f29c4de616705e4f8405e80d869825}{children}}
+\begin{DoxyCompactList}\small\item\em This node\textquotesingle{}s children. \end{DoxyCompactList}\item 
+std\+::weak\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \mbox{\hyperlink{class_node_a99e65d6b9186c551371b95ea3845b6fd}{parent}}
+\begin{DoxyCompactList}\small\item\em This node\textquotesingle{}s parent. \end{DoxyCompactList}\item 
+glm\+::mat4 \mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}}
+\begin{DoxyCompactList}\small\item\em Stores the transformation matrix for this node. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class representing a node in a scene graph. 
+
+The \doxylink{class_node}{Node} class is designed to be part of a scene graph, containing transformation information as well as a list of child nodes. It\textquotesingle{}s capable of constructing a hierarchical representation of a 3D scene, where each node can have many children but only one parent. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_node_ae3d68123f770b80e09261594d99eedb5}\label{class_node_ae3d68123f770b80e09261594d99eedb5} 
+\index{Node@{Node}!Node@{Node}}
+\index{Node@{Node}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{Node()}{Node()}}
+{\footnotesize\ttfamily Node\+::\+Node (\begin{DoxyParamCaption}\item[{const glm\+::mat4 \&}]{transformation = {\ttfamily glm\+:\+:mat4(1.0f)} }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor for \doxylink{class_node}{Node}. 
+
+Creates a new \doxylink{class_node}{Node} with a given transformation matrix. If no matrix is provided, defaults to the identity matrix.
+
+
+\begin{DoxyParams}{Parameters}
+{\em transformation} & Initial transformation matrix for this node. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_node_a36ab59d094fe2dd2b2d8087c7fe3c955}\label{class_node_a36ab59d094fe2dd2b2d8087c7fe3c955} 
+\index{Node@{Node}!addChild@{addChild}}
+\index{addChild@{addChild}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{addChild()}{addChild()}}
+{\footnotesize\ttfamily void Node\+::add\+Child (\begin{DoxyParamCaption}\item[{std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$}]{child }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Adds a child to this node. 
+
+The child node will be added to the list of children for this node, and its parent will be set to this node.
+
+
+\begin{DoxyParams}{Parameters}
+{\em child} & The child node to be added. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_node_a44f29c4de616705e4f8405e80d869825}\label{class_node_a44f29c4de616705e4f8405e80d869825} 
+\index{Node@{Node}!children@{children}}
+\index{children@{children}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{children}{children}}
+{\footnotesize\ttfamily std\+::vector$<$std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_node}{Node}}$>$ $>$ Node\+::children}
+
+
+
+This node\textquotesingle{}s children. 
+
+\Hypertarget{class_node_a99e65d6b9186c551371b95ea3845b6fd}\label{class_node_a99e65d6b9186c551371b95ea3845b6fd} 
+\index{Node@{Node}!parent@{parent}}
+\index{parent@{parent}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{parent}{parent}}
+{\footnotesize\ttfamily std\+::weak\+\_\+ptr$<$\mbox{\hyperlink{class_node}{Node}}$>$ Node\+::parent}
+
+
+
+This node\textquotesingle{}s parent. 
+
+\Hypertarget{class_node_a202b435051de75ea0d7ce43ea93ca9a9}\label{class_node_a202b435051de75ea0d7ce43ea93ca9a9} 
+\index{Node@{Node}!transformation@{transformation}}
+\index{transformation@{transformation}!Node@{Node}}
+\doxysubsubsection{\texorpdfstring{transformation}{transformation}}
+{\footnotesize\ttfamily glm\+::mat4 Node\+::transformation}
+
+
+
+Stores the transformation matrix for this node. 
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{_node_8h}{Node.\+h}}\end{DoxyCompactItemize}

@@ -12,14 +12,24 @@
     #include "Rasterizer.hpp"
     #include <vector>
     #include "Camera.h"
-
+    #include <memory>
+    #include "Mesh.h"
+    #include "Light.h"
     namespace example
     {
 
         using  std::vector;
         using argb::Rgb888;
         using argb::Color_Buffer;
-      
+        using std::shared_ptr;   
+        /**
+         * @class View
+         * @brief Class for managing the rendering of 3D objects in a scene.
+         *
+         * The View class handles updating and rendering the objects in a scene.
+         * It uses a camera to calculate the view matrix, a light for shading, and
+         * a color buffer and rasterizer for rendering the scene.
+         */
         class View
         {
         private:
@@ -32,47 +42,32 @@
             typedef vector< Color  >      Vertex_Colors;
 
         private:
+            std::shared_ptr<Node> root; ///< Root Node for the scene graph
+            vector< shared_ptr<Mesh> > meshes;  ///< Declare the vector of Mesh pointers here
+            Color_Buffer               color_buffer;  ///< Color buffer for rendering
+            Rasterizer< Color_Buffer > rasterizer;    ///< Rasterizer for rendering
 
-            static constexpr char mesh_file_path[] = "../../shared/assets/stanford-bunny.obj";
-
-            Color_Buffer               color_buffer;
-            Rasterizer< Color_Buffer > rasterizer;
-            // Datos de la malla
-			// En la practica tiene que haber varias mallas
-			// Sacar esto en una clase aparte de mallas
-            Vertex_Buffer     original_vertices;
-            Index_Buffer      original_indices;
-            Vertex_Colors     original_colors;
-            Vertex_Buffer     transformed_vertices;
-            vector< Point4i > display_vertices;
-            Camera camera;
-            unsigned width;
-            unsigned height;
+            Camera camera;   ///< Camera for view calculations
+            unsigned width;  ///< Width of the view
+            unsigned height; ///< Height of the view
 
         public:
-            struct Light
-            {
-                Vector3f position;
-                Color color;
-                Light(const Vector3f& position_, const Color& color_)
-                    : position(position_), color(color_)
-                {}
-            };
+       
+            /**
+               * @brief Constructor for View.
+               *
+               * @param width Width of the view.
+               * @param height Height of the view.
+               */
             View(unsigned width, unsigned height);
 
             void update ();
             void render ();
-            void transform_vertices();
             Camera& get_camera();
         private:
-            Light light;
-            Color ambient_color;
-            Vector3f get_normal(const Vertex& v0, const Vertex& v1, const Vertex& v2);
-            Color add_colors(const Color& c1, const Color& c2) const;
-            Color multiply_color_by_scalar(const Color& c, float scalar) const;
-            bool  is_frontface (const Vertex * const projected_vertices, const int * const indices);
-            float rand_clamp   () { return float(rand () & 0xff) * 0.0039215f; }
-
+            Light light;  ///< Light for shading calculations
+            Color ambient_color;  ///< Ambient color for rendering
+            float rand_clamp() { return float(rand() & 0xff) * 0.0039215f; }  ///< Clamps a random value between 0 and 1.
         };
 
     }

@@ -1,0 +1,30 @@
+\doxysection{Node.\+h}
+\hypertarget{_node_8h_source}{}\label{_node_8h_source}\index{source/Node.h@{source/Node.h}}
+\mbox{\hyperlink{_node_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_mesh_data_8h}{MeshData.h}}"{}}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <memory>}}
+\DoxyCodeLine{00015\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_node}{Node}}\ :\ \textcolor{keyword}{public}\ std::enable\_shared\_from\_this<Node>}
+\DoxyCodeLine{00016\ \{}
+\DoxyCodeLine{00017\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::vector<std::shared\_ptr<Node>>\ \mbox{\hyperlink{class_node_a44f29c4de616705e4f8405e80d869825}{children}};\ \ }
+\DoxyCodeLine{00019\ \ \ \ \ std::weak\_ptr<Node>\ \mbox{\hyperlink{class_node_a99e65d6b9186c551371b95ea3845b6fd}{parent}};\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ glm::mat4\ \mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}};\ \ }
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00031\ \ \ \ \ \mbox{\hyperlink{class_node_ae3d68123f770b80e09261594d99eedb5}{Node}}(\textcolor{keyword}{const}\ glm::mat4\&\ \mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}}\ =\ glm::mat4(1.0f))}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}}(\mbox{\hyperlink{class_node_a202b435051de75ea0d7ce43ea93ca9a9}{transformation}})}
+\DoxyCodeLine{00033\ \ \ \ \ \{\}}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00043\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_node_a36ab59d094fe2dd2b2d8087c7fe3c955}{addChild}}(std::shared\_ptr<Node>\ child)}
+\DoxyCodeLine{00044\ \ \ \ \ \{}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ child-\/>parent\ =\ shared\_from\_this();}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_node_a44f29c4de616705e4f8405e80d869825}{children}}.push\_back(child);}
+\DoxyCodeLine{00047\ \ \ \ \ \}}
+\DoxyCodeLine{00048\ }
+\DoxyCodeLine{00049\ \};}
+
+\end{DoxyCode}

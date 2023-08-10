@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__mesh_8h_source" xml:lang="en-US">
+<title>Mesh.h</title>
+<indexterm><primary>source/Mesh.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__node_8h">Node.h</link>&quot;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__mesh_data_8h">MeshData.h</link>&quot;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__rasterizer_8hpp">Rasterizer.hpp</link>&quot;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+6 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__camera_8h">Camera.h</link>&quot;</emphasis>
+7 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__light_8h">Light.h</link>&quot;</emphasis>
+8 <emphasis role="keyword">using&#32;namespace&#32;</emphasis><link linkend="_namespaceexample">example</link>;
+9 <emphasis role="keyword">using&#32;&#32;</emphasis>std::vector;
+10 <emphasis role="keyword">using&#32;</emphasis>argb::Rgb888;
+11 <emphasis role="keyword">using&#32;</emphasis>argb::Color_Buffer;
+19 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_mesh">Mesh</link>&#32;:&#32;<emphasis role="keyword">public</emphasis>&#32;<link linkend="_class_node">Node</link>
+20 {
+21 <emphasis role="keyword">private</emphasis>:
+22 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;Rgb888&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Color;
+23 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;Color_Buffer&lt;&#32;Color&#32;&gt;&#32;Color_Buffer;
+24 
+25 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;&#32;is_frontface(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link>*&#32;<emphasis role="keyword">const</emphasis>&#32;projected_vertices,&#32;<emphasis role="keyword">const</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>*&#32;<emphasis role="keyword">const</emphasis>&#32;indices);
+26 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;width;
+27 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;height;
+28 <emphasis role="keyword">public</emphasis>:
+29 &#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_mesh_data">MeshData</link>&#32;<link linkend="_class_mesh_1a5926a0196fa74e394d4c246fd34bb16b">meshData</link>;&#32;<emphasis role="comment">//&#32;Contains&#32;all&#32;the&#32;vertex&#32;Info&#32;</emphasis>
+30 &#32;&#32;&#32;&#32;<link linkend="_class_camera">Camera</link>&amp;&#32;<link linkend="_class_mesh_1a1523855b508c03c7a7d04e71105a4dbb">camera</link>;&#32;<emphasis role="comment">//&#32;Contains&#32;a&#32;reference&#32;to&#32;the&#32;existing&#32;Camera</emphasis>
+31 &#32;&#32;&#32;&#32;Color_Buffer&amp;&#32;<link linkend="_class_mesh_1a49fa28ffefcb70eadac4922f24256df1">color_buffer</link>;&#32;<emphasis role="comment">//&#32;Contains&#32;a&#32;reference&#32;to&#32;the&#32;existing&#32;Color_Buffer</emphasis>
+32 &#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt;Color_Buffer&gt;</link>&amp;&#32;<link linkend="_class_mesh_1a6cd1f196ccf4e43e75a5438fdcc3d986">rasterizer</link>;&#32;<emphasis role="comment">//&#32;Contains&#32;a&#32;reference&#32;to&#32;the&#32;existing&#32;Rasterizer</emphasis>
+43 <emphasis role="comment"></emphasis>&#32;&#32;&#32;&#32;<link linkend="_class_mesh">Mesh</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;file_path,&#32;<link linkend="_class_camera">Camera</link>&amp;&#32;<link linkend="_class_mesh_1a1523855b508c03c7a7d04e71105a4dbb">camera</link>,&#32;Color_Buffer&amp;&#32;<link linkend="_class_mesh_1a49fa28ffefcb70eadac4922f24256df1">color_buffer</link>,&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt;Color_Buffer&gt;</link>&amp;&#32;<link linkend="_class_mesh_1a6cd1f196ccf4e43e75a5438fdcc3d986">rasterizer</link>,&#32;<emphasis role="keywordtype">float</emphasis>&#32;width,&#32;<emphasis role="keywordtype">float</emphasis>&#32;height);
+51 &#32;&#32;&#32;&#32;<emphasis role="keyword">inline</emphasis>&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>&#32;<link linkend="_class_mesh_1ad59a768b959b399e61be831f14e37074">transform_vector</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link>&amp;&#32;matrix,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link>&amp;&#32;vector)
+52 &#32;&#32;&#32;&#32;{
+53 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;glm::vec4&#32;temp&#32;=&#32;matrix&#32;*&#32;glm::vec4(vector,&#32;0.0f);
+54 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordflow">return</emphasis>&#32;glm::vec3(temp);
+55 &#32;&#32;&#32;&#32;}
+59 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_mesh_1ad98ece0a97bea870cf86e3009cdb02c5">update</link>();&#32;<emphasis role="comment">//&#32;Updates&#32;the&#32;Transform&#32;matrix</emphasis>
+66 <emphasis role="comment"></emphasis>&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_mesh_1acb5ca3d8dff24a83d04529f208e9fe22">render</link>(<emphasis role="keyword">const</emphasis>&#32;<link linkend="_struct_light">Light</link>&amp;&#32;light,&#32;Rgb888&#32;&#32;ambient_lighting);&#32;<emphasis role="comment">//&#32;Renders&#32;the&#32;Mesh</emphasis>
+67 };
+</programlisting></section>

@@ -1,0 +1,23 @@
+\doxysection{Light.\+h}
+\hypertarget{_light_8h_source}{}\label{_light_8h_source}\index{source/Light.h@{source/Light.h}}
+\mbox{\hyperlink{_light_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Color\_Buffer.hpp>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{using\ }argb::Rgb888;}
+\DoxyCodeLine{00006\ \textcolor{keyword}{typedef}\ Rgb888\ \mbox{\hyperlink{_light_8h_aa2f9a31c380f9c69ec71c59b9c584fdf}{Color}};}
+\DoxyCodeLine{00011\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_light}{Light}}}
+\DoxyCodeLine{00012\ \{}
+\DoxyCodeLine{00013\ \ \ \ \ Vector3f\ \mbox{\hyperlink{struct_light_ab830c6ade5d6a5cb7306cc7803ba92bf}{position}};\ }
+\DoxyCodeLine{00014\ \ \ \ \ \mbox{\hyperlink{_light_8h_aa2f9a31c380f9c69ec71c59b9c584fdf}{Color}}\ \mbox{\hyperlink{struct_light_ad7a168d26aed1bf7cca1a8d8e6f8ada4}{color}};\ }
+\DoxyCodeLine{00015\ \ \ \ \ \mbox{\hyperlink{_light_8h_aa2f9a31c380f9c69ec71c59b9c584fdf}{Color}}\ \mbox{\hyperlink{struct_light_aa6c629968d4bd3bcf77c7f78630ee5aa}{specular\_color}};\ }
+\DoxyCodeLine{00016\ \ \ \ \ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{struct_light_a916d1fdad0ea12c41165fc247219944d}{shininess}};\ }
+\DoxyCodeLine{00017\ }
+\DoxyCodeLine{00026\ \ \ \ \ \mbox{\hyperlink{struct_light_aad4fb273ab8e1969509248ee1d73544a}{Light}}(\textcolor{keyword}{const}\ Vector3f\&\ position\_,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_light_8h_aa2f9a31c380f9c69ec71c59b9c584fdf}{Color}}\&\ color\_,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{_light_8h_aa2f9a31c380f9c69ec71c59b9c584fdf}{Color}}\&\ specular\_color\_,\ \textcolor{keywordtype}{float}\ shininess\_)}
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ :\ \mbox{\hyperlink{struct_light_ab830c6ade5d6a5cb7306cc7803ba92bf}{position}}(position\_),\ \mbox{\hyperlink{struct_light_ad7a168d26aed1bf7cca1a8d8e6f8ada4}{color}}(color\_),\ \mbox{\hyperlink{struct_light_aa6c629968d4bd3bcf77c7f78630ee5aa}{specular\_color}}(specular\_color\_),\ \mbox{\hyperlink{struct_light_a916d1fdad0ea12c41165fc247219944d}{shininess}}(shininess\_)}
+\DoxyCodeLine{00028\ \ \ \ \ \{\}}
+\DoxyCodeLine{00029\ \};}
+
+\end{DoxyCode}

@@ -1,0 +1,143 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_transform" xml:lang="en-US">
+<title>Transform Struct Reference</title>
+<indexterm><primary>Transform</primary></indexterm>
+<para>
+
+<para>Represents a 3D transformation including position, rotation and scale. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Camera.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_struct_transform_1a4fd266d630a3c64e3f2c5bfea257349b">get_transform_matrix</link> ()</para>
+
+<para>Get the transformation matrix. </para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1afd49ac2f620e25a1c79cf342badd5f90">move</link> (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp;offset)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1acc88c8066285bb2858dfe0be3f01c388">rotate</link> (const <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">example::Quaternion</link> &amp;q)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1af191e1a4668ab2c3f8fd0c93ad5addd0">set_rotation</link> (const <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">example::Quaternion</link> &amp;q)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1a562d085f75c2e540aa082ddf368400ee">scale_up</link> (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp;factor)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1a03435a7d8b1b7b4a4b1288d2e47ea763">scale_down</link> (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp;factor)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1abbb8c17afe564f731a9dee013445aa32">translate_local</link> (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp;offset)</para>
+</listitem>
+            <listitem><para>void <link linkend="_struct_transform_1ac1cf7d5e5c5371fbeabf4323d810665a">rotate</link> (float pitch, float yaw)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> <link linkend="_struct_transform_1a93e0de362a87f0b687f1cd90a2c144ba">position</link></para>
+
+<para>Position of the object. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link> <link linkend="_struct_transform_1a273d0597bb304555eda279c0348a5045">rotation</link></para>
+
+<para>Rotation of the object represented as a quaternion. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> <link linkend="_struct_transform_1a3393425f0ba702b4a31d978f2118fe37">scale</link></para>
+
+<para>Scale factors in 3 dimensions. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a 3D transformation including position, rotation and scale. </para>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_struct_transform_1a4fd266d630a3c64e3f2c5bfea257349b"/><section>
+    <title>get_transform_matrix()</title>
+<indexterm><primary>get_transform_matrix</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>get_transform_matrix</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> Transform::get_transform_matrix ( )<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Get the transformation matrix. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>4x4 transformation matrix representing this transform </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_struct_transform_1afd49ac2f620e25a1c79cf342badd5f90"/><section>
+    <title>move()</title>
+<indexterm><primary>move</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>move</secondary></indexterm>
+<para><computeroutput>void Transform::move (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp; offset)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1acc88c8066285bb2858dfe0be3f01c388"/><section>
+    <title>rotate()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>rotate</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>rotate</secondary></indexterm>
+<para><computeroutput>void Transform::rotate (const <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">example::Quaternion</link> &amp; q)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1ac1cf7d5e5c5371fbeabf4323d810665a"/><section>
+    <title>rotate()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>rotate</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>rotate</secondary></indexterm>
+<para><computeroutput>void Transform::rotate (float pitch, float yaw)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1a03435a7d8b1b7b4a4b1288d2e47ea763"/><section>
+    <title>scale_down()</title>
+<indexterm><primary>scale_down</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>scale_down</secondary></indexterm>
+<para><computeroutput>void Transform::scale_down (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp; factor)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1a562d085f75c2e540aa082ddf368400ee"/><section>
+    <title>scale_up()</title>
+<indexterm><primary>scale_up</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>scale_up</secondary></indexterm>
+<para><computeroutput>void Transform::scale_up (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp; factor)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1af191e1a4668ab2c3f8fd0c93ad5addd0"/><section>
+    <title>set_rotation()</title>
+<indexterm><primary>set_rotation</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>set_rotation</secondary></indexterm>
+<para><computeroutput>void Transform::set_rotation (const <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">example::Quaternion</link> &amp; q)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_struct_transform_1abbb8c17afe564f731a9dee013445aa32"/><section>
+    <title>translate_local()</title>
+<indexterm><primary>translate_local</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>translate_local</secondary></indexterm>
+<para><computeroutput>void Transform::translate_local (const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link> &amp; offset)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_transform_1a93e0de362a87f0b687f1cd90a2c144ba"/><section>
+    <title>position</title>
+<indexterm><primary>position</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>position</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> Transform::position</computeroutput></para><para>
+
+<para>Position of the object. </para>
+</para>
+</section>
+<anchor xml:id="_struct_transform_1a273d0597bb304555eda279c0348a5045"/><section>
+    <title>rotation</title>
+<indexterm><primary>rotation</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>rotation</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link> Transform::rotation</computeroutput></para><para>
+
+<para>Rotation of the object represented as a quaternion. </para>
+</para>
+</section>
+<anchor xml:id="_struct_transform_1a3393425f0ba702b4a31d978f2118fe37"/><section>
+    <title>scale</title>
+<indexterm><primary>scale</primary><secondary>Transform</secondary></indexterm>
+<indexterm><primary>Transform</primary><secondary>scale</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> Transform::scale</computeroutput></para><para>
+
+<para>Scale factors in 3 dimensions. </para>
+</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+source/<link linkend="__camera_8h">Camera.h</link></section>
+</section>

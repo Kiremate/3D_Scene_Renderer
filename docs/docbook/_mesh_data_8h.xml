@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__mesh_data_8h" xml:lang="en-US">
+<title>source/MeshData.h File Reference</title>
+<indexterm><primary>source/MeshData.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;vector&gt;<?linebreak?>#include &lt;Color_Buffer.hpp&gt;<?linebreak?>#include &quot;math.hpp&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classexample_1_1_mesh_data">example::MeshData</link></para>
+
+<para>Contains the data structures needed for a 3D mesh. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceexample">example</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef <link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link> <link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">example::Vertex</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; <link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link> &gt; <link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">example::Vertex_Buffer</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; int &gt; <link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">example::Index_Buffer</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; Rgb888 &gt; <link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">example::Vertex_Colors</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &gt; <link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">example::Vertex_Normals</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

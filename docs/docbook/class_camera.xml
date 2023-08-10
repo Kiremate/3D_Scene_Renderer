@@ -1,0 +1,104 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_camera" xml:lang="en-US">
+<title>Camera Class Reference</title>
+<indexterm><primary>Camera</primary></indexterm>
+<para>
+
+<para>Represents a camera in 3D space. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Camera.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_class_camera_1aec17d75513bee2b0c35a9214d6e76dab">get_view_matrix</link> ()</para>
+
+<para>Get the view matrix for this camera. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_class_camera_1a213be49c3edcf6e4cc6c35e5b33d821d">get_inverse_transform_matrix</link> ()</para>
+
+<para>Get the inverse of the transform matrix. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_camera_1afd37eb5098867e6c4045c37eea9b3359">handle_input</link> (sf::Window &amp;window, float delta_time)</para>
+</listitem>
+            <listitem><para><link linkend="_class_camera_1ae23af4d7cab430c77d537621cdd16b3f">Camera</link> ()=default</para>
+</listitem>
+            <listitem><para><link linkend="_class_camera_1af6c982012f59a07c6d765bb0f9952214">Camera</link> (float fov, float near_plane, float far_plane, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> position, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> target, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> up)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_camera_1af1ac9f9c442e3c36f6155ec195ee279b">move_camera</link> (float x, float y, float z)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_camera_1ae3a3e65c9bd9b7237579bf216a629d7a">update_directions</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a camera in 3D space. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_camera_1ae23af4d7cab430c77d537621cdd16b3f"/><section>
+    <title>Camera()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>Camera</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>Camera</secondary></indexterm>
+<para><computeroutput>Camera::Camera ( )<computeroutput>[default]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_class_camera_1af6c982012f59a07c6d765bb0f9952214"/><section>
+    <title>Camera()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>Camera</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>Camera</secondary></indexterm>
+<para><computeroutput>Camera::Camera (float fov, float near_plane, float far_plane, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> position, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> target, <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> up)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_camera_1a213be49c3edcf6e4cc6c35e5b33d821d"/><section>
+    <title>get_inverse_transform_matrix()</title>
+<indexterm><primary>get_inverse_transform_matrix</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>get_inverse_transform_matrix</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> Camera::get_inverse_transform_matrix ( )</computeroutput></para><para>
+
+<para>Get the inverse of the transform matrix. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>Inverse of the transform matrix </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_camera_1aec17d75513bee2b0c35a9214d6e76dab"/><section>
+    <title>get_view_matrix()</title>
+<indexterm><primary>get_view_matrix</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>get_view_matrix</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> Camera::get_view_matrix ( )</computeroutput></para><para>
+
+<para>Get the view matrix for this camera. </para>
+</para>
+
+<para><formalpara><title>Returns</title>
+
+<para>4x4 view matrix </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_camera_1afd37eb5098867e6c4045c37eea9b3359"/><section>
+    <title>handle_input()</title>
+<indexterm><primary>handle_input</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>handle_input</secondary></indexterm>
+<para><computeroutput>void Camera::handle_input (sf::Window &amp; window, float delta_time)</computeroutput></para></section>
+<anchor xml:id="_class_camera_1af1ac9f9c442e3c36f6155ec195ee279b"/><section>
+    <title>move_camera()</title>
+<indexterm><primary>move_camera</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>move_camera</secondary></indexterm>
+<para><computeroutput>void Camera::move_camera (float x, float y, float z)</computeroutput></para></section>
+<anchor xml:id="_class_camera_1ae3a3e65c9bd9b7237579bf216a629d7a"/><section>
+    <title>update_directions()</title>
+<indexterm><primary>update_directions</primary><secondary>Camera</secondary></indexterm>
+<indexterm><primary>Camera</primary><secondary>update_directions</secondary></indexterm>
+<para><computeroutput>void Camera::update_directions ( )</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following files:</para>
+source/<link linkend="__camera_8h">Camera.h</link>source/<link linkend="__camera_8cpp">Camera.cpp</link></section>
+</section>

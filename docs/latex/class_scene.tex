@@ -1,0 +1,59 @@
+\doxysection{Scene Class Reference}
+\hypertarget{class_scene}{}\label{class_scene}\index{Scene@{Scene}}
+
+
+{\ttfamily \#include $<$Scene.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_scene_ad10176d75a9cc0da56626f682d083507}{Scene}} ()
+\item 
+void \mbox{\hyperlink{class_scene_ab18688256a68356105c9b1f014884ba2}{render}} (\mbox{\hyperlink{classexample_1_1_rasterizer}{example\+::\+Rasterizer}}$<$ example\+::\+Color\+\_\+\+Buffer$<$ example\+::\+Rgb888 $>$ $>$ \&rasterizer, const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&view\+\_\+projection\+\_\+matrix)
+\item 
+void \mbox{\hyperlink{class_scene_a1dcc8e88d124fa094d7f830a6014f5c5}{traverse\+\_\+and\+\_\+render}} (const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \&node, \mbox{\hyperlink{classexample_1_1_rasterizer}{example\+::\+Rasterizer}}$<$ example\+::\+Color\+\_\+\+Buffer$<$ example\+::\+Rgb888 $>$ $>$ \&rasterizer, const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&view\+\_\+projection\+\_\+matrix, const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&parent\+\_\+transform)
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \mbox{\hyperlink{class_scene_ae74ce09f9daac5284f4e30faf27f9360}{root}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_scene_ad10176d75a9cc0da56626f682d083507}\label{class_scene_ad10176d75a9cc0da56626f682d083507} 
+\index{Scene@{Scene}!Scene@{Scene}}
+\index{Scene@{Scene}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{Scene()}{Scene()}}
+{\footnotesize\ttfamily Scene\+::\+Scene (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_scene_ab18688256a68356105c9b1f014884ba2}\label{class_scene_ab18688256a68356105c9b1f014884ba2} 
+\index{Scene@{Scene}!render@{render}}
+\index{render@{render}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{render()}{render()}}
+{\footnotesize\ttfamily void Scene\+::render (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classexample_1_1_rasterizer}{example\+::\+Rasterizer}}$<$ example\+::\+Color\+\_\+\+Buffer$<$ example\+::\+Rgb888 $>$ $>$ \&}]{rasterizer,  }\item[{const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&}]{view\+\_\+projection\+\_\+matrix }\end{DoxyParamCaption})}
+
+\Hypertarget{class_scene_a1dcc8e88d124fa094d7f830a6014f5c5}\label{class_scene_a1dcc8e88d124fa094d7f830a6014f5c5} 
+\index{Scene@{Scene}!traverse\_and\_render@{traverse\_and\_render}}
+\index{traverse\_and\_render@{traverse\_and\_render}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{traverse\_and\_render()}{traverse\_and\_render()}}
+{\footnotesize\ttfamily void Scene\+::traverse\+\_\+and\+\_\+render (\begin{DoxyParamCaption}\item[{const std\+::shared\+\_\+ptr$<$ \mbox{\hyperlink{class_node}{Node}} $>$ \&}]{node,  }\item[{\mbox{\hyperlink{classexample_1_1_rasterizer}{example\+::\+Rasterizer}}$<$ example\+::\+Color\+\_\+\+Buffer$<$ example\+::\+Rgb888 $>$ $>$ \&}]{rasterizer,  }\item[{const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&}]{view\+\_\+projection\+\_\+matrix,  }\item[{const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}} \&}]{parent\+\_\+transform }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{class_scene_ae74ce09f9daac5284f4e30faf27f9360}\label{class_scene_ae74ce09f9daac5284f4e30faf27f9360} 
+\index{Scene@{Scene}!root@{root}}
+\index{root@{root}!Scene@{Scene}}
+\doxysubsubsection{\texorpdfstring{root}{root}}
+{\footnotesize\ttfamily std\+::shared\+\_\+ptr$<$\mbox{\hyperlink{class_node}{Node}}$>$ Scene\+::root}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{_scene_8h}{Scene.\+h}}\item 
+source/\mbox{\hyperlink{_scene_8cpp}{Scene.\+cpp}}\end{DoxyCompactItemize}

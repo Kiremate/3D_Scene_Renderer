@@ -1,0 +1,123 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classexample_1_1_mesh_data" xml:lang="en-US">
+<title>example::MeshData Class Reference</title>
+<indexterm><primary>example::MeshData</primary></indexterm>
+<para>
+
+<para>Contains the data structures needed for a 3D mesh. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;MeshData.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link> <link linkend="_classexample_1_1_mesh_data_1a44d70bf7a3b8ceeabaebbf7958cdcd47">original_vertices</link></para>
+
+<para>Original vertex buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link> <link linkend="_classexample_1_1_mesh_data_1a8fcc6db9a74398ca51cc90a677259fd9">transformed_vertices</link></para>
+
+<para>Transformed vertex buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">Index_Buffer</link> <link linkend="_classexample_1_1_mesh_data_1a52d441d29d7aa7def58fa72212d84371">original_indices</link></para>
+
+<para>Original index buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">Vertex_Colors</link> <link linkend="_classexample_1_1_mesh_data_1a5122c6190c828a05e267621083aa0f54">original_colors</link></para>
+
+<para>Original color buffer. </para>
+</listitem>
+            <listitem><para>std::vector&lt; <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> &gt; <link linkend="_classexample_1_1_mesh_data_1a42cbca900ee7896391b39eff17d88d3d">display_vertices</link></para>
+
+<para>Displayed vertices. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link> <link linkend="_classexample_1_1_mesh_data_1a8a62a08b65c01f21f90a90ede5f588cc">original_normals</link></para>
+
+<para>Original normals buffer. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link> <link linkend="_classexample_1_1_mesh_data_1af4630a1ac22e9dfb0abcd51caa9b0420">transformed_normals</link></para>
+
+<para>Transformed normals buffer. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Contains the data structures needed for a 3D mesh. </para>
+
+
+
+<para>The <link linkend="_classexample_1_1_mesh_data">MeshData</link> class stores all the data needed for a 3D mesh, including the vertices, indices, colors, and normals. This data can be transformed and displayed in a 3D scene. </para>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_classexample_1_1_mesh_data_1a42cbca900ee7896391b39eff17d88d3d"/><section>
+    <title>display_vertices</title>
+<indexterm><primary>display_vertices</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>display_vertices</secondary></indexterm>
+<para><computeroutput>std::vector&lt; <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> &gt; example::MeshData::display_vertices</computeroutput></para><para>
+
+<para>Displayed vertices. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1a5122c6190c828a05e267621083aa0f54"/><section>
+    <title>original_colors</title>
+<indexterm><primary>original_colors</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>original_colors</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">Vertex_Colors</link> example::MeshData::original_colors</computeroutput></para><para>
+
+<para>Original color buffer. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1a52d441d29d7aa7def58fa72212d84371"/><section>
+    <title>original_indices</title>
+<indexterm><primary>original_indices</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>original_indices</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">Index_Buffer</link> example::MeshData::original_indices</computeroutput></para><para>
+
+<para>Original index buffer. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1a8a62a08b65c01f21f90a90ede5f588cc"/><section>
+    <title>original_normals</title>
+<indexterm><primary>original_normals</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>original_normals</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link> example::MeshData::original_normals</computeroutput></para><para>
+
+<para>Original normals buffer. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1a44d70bf7a3b8ceeabaebbf7958cdcd47"/><section>
+    <title>original_vertices</title>
+<indexterm><primary>original_vertices</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>original_vertices</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link> example::MeshData::original_vertices</computeroutput></para><para>
+
+<para>Original vertex buffer. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1af4630a1ac22e9dfb0abcd51caa9b0420"/><section>
+    <title>transformed_normals</title>
+<indexterm><primary>transformed_normals</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>transformed_normals</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link> example::MeshData::transformed_normals</computeroutput></para><para>
+
+<para>Transformed normals buffer. </para>
+</para>
+</section>
+<anchor xml:id="_classexample_1_1_mesh_data_1a8fcc6db9a74398ca51cc90a677259fd9"/><section>
+    <title>transformed_vertices</title>
+<indexterm><primary>transformed_vertices</primary><secondary>example::MeshData</secondary></indexterm>
+<indexterm><primary>example::MeshData</primary><secondary>transformed_vertices</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link> example::MeshData::transformed_vertices</computeroutput></para><para>
+
+<para>Transformed vertex buffer. </para>
+</para>
+</section>
+<para>
+The documentation for this class was generated from the following file:</para>
+source/<link linkend="__mesh_data_8h">MeshData.h</link></section>
+</section>

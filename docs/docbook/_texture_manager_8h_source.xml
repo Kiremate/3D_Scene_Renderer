@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__texture_manager_8h_source" xml:lang="en-US">
+<title>TextureManager.h</title>
+<indexterm><primary>source/TextureManager.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;string&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;map&gt;</emphasis>
+4 
+5 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_texture_data">TextureData</link>&#32;{
+6 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_struct_texture_data_1afce2660199b957ab84fb494e5937d771">openGlTextureId</link>;
+7 };
+8 
+9 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_texture_manager">TextureManager</link>&#32;{
+10 <emphasis role="keyword">public</emphasis>:
+11 &#32;&#32;&#32;&#32;<link linkend="_class_texture_manager_1ad76abb178b37cedf4514eb0154349935">TextureManager</link>();
+12 &#32;&#32;&#32;&#32;<link linkend="_class_texture_manager_1a001d6d74674961db79987e3222682576">~TextureManager</link>();
+13 
+14 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">bool</emphasis>&#32;<link linkend="_class_texture_manager_1a083b5be2f77a5eb825d86a95efc3c4fc">loadTexture</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;<emphasis role="keywordtype">id</emphasis>,&#32;<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;filepath);
+15 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;<emphasis role="keywordtype">int</emphasis>&#32;<link linkend="_class_texture_manager_1af58e8ce1a562507c69c9be9670780c9f">getTexture</link>(<emphasis role="keyword">const</emphasis>&#32;std::string&amp;&#32;<emphasis role="keywordtype">id</emphasis>);
+16 
+17 <emphasis role="keyword">private</emphasis>:
+18 &#32;&#32;&#32;&#32;std::map&lt;std::string,&#32;TextureData&gt;&#32;textures;
+19 };
+</programlisting></section>

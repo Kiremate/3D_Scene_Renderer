@@ -1,0 +1,57 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_scene" xml:lang="en-US">
+<title>Scene Class Reference</title>
+<indexterm><primary>Scene</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Scene.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_scene_1ad10176d75a9cc0da56626f682d083507">Scene</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_scene_1ab18688256a68356105c9b1f014884ba2">render</link> (<link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; example::Color_Buffer&lt; example::Rgb888 &gt; &gt; &amp;rasterizer, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp;view_projection_matrix)</para>
+</listitem>
+            <listitem><para>void <link linkend="_class_scene_1a1dcc8e88d124fa094d7f830a6014f5c5">traverse_and_render</link> (const std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; &amp;node, <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; example::Color_Buffer&lt; example::Rgb888 &gt; &gt; &amp;rasterizer, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp;view_projection_matrix, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp;parent_transform)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; <link linkend="_class_scene_1ae74ce09f9daac5284f4e30faf27f9360">root</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_scene_1ad10176d75a9cc0da56626f682d083507"/><section>
+    <title>Scene()</title>
+<indexterm><primary>Scene</primary><secondary>Scene</secondary></indexterm>
+<indexterm><primary>Scene</primary><secondary>Scene</secondary></indexterm>
+<para><computeroutput>Scene::Scene ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_scene_1ab18688256a68356105c9b1f014884ba2"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>Scene</secondary></indexterm>
+<indexterm><primary>Scene</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void Scene::render (<link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; example::Color_Buffer&lt; example::Rgb888 &gt; &gt; &amp; rasterizer, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp; view_projection_matrix)</computeroutput></para></section>
+<anchor xml:id="_class_scene_1a1dcc8e88d124fa094d7f830a6014f5c5"/><section>
+    <title>traverse_and_render()</title>
+<indexterm><primary>traverse_and_render</primary><secondary>Scene</secondary></indexterm>
+<indexterm><primary>Scene</primary><secondary>traverse_and_render</secondary></indexterm>
+<para><computeroutput>void Scene::traverse_and_render (const std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; &amp; node, <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; example::Color_Buffer&lt; example::Rgb888 &gt; &gt; &amp; rasterizer, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp; view_projection_matrix, const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link> &amp; parent_transform)</computeroutput></para></section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_scene_1ae74ce09f9daac5284f4e30faf27f9360"/><section>
+    <title>root</title>
+<indexterm><primary>root</primary><secondary>Scene</secondary></indexterm>
+<indexterm><primary>Scene</primary><secondary>root</secondary></indexterm>
+<para><computeroutput>std::shared_ptr&lt;<link linkend="_class_node">Node</link>&gt; Scene::root</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following files:</para>
+source/<link linkend="__scene_8h">Scene.h</link>source/<link linkend="__scene_8cpp">Scene.cpp</link></section>
+</section>

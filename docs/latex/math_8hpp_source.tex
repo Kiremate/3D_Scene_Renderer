@@ -1,0 +1,128 @@
+\doxysection{math.\+hpp}
+\hypertarget{math_8hpp_source}{}\label{math_8hpp_source}\index{source/math.hpp@{source/math.hpp}}
+\mbox{\hyperlink{math_8hpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ }
+\DoxyCodeLine{00002\ \textcolor{comment}{//\ Este\ código\ es\ de\ dominio\ público.}}
+\DoxyCodeLine{00003\ \textcolor{comment}{//\ angel.rodriguez@esne.edu}}
+\DoxyCodeLine{00004\ \textcolor{comment}{//\ 2016.01\ -\/\ 2021.04}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#ifndef\ MATH\_HEADER}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ MATH\_HEADER}}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/glm.hpp>}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtc/type\_ptr.hpp>}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtx/matrix\_decompose.hpp>}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\ \ \ \ \#include\ <glm/gtc/matrix\_transform.hpp>}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceexample}{example}}}
+\DoxyCodeLine{00015\ \ \ \ \ \{}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec2\ \mbox{\hyperlink{namespaceexample_ad90f8f3531274de4a0fe19430613e60e}{Vector2i}};}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec3\ \mbox{\hyperlink{namespaceexample_a81ed02d00d816259b28772dfe5c45386}{Vector3i}};}
+\DoxyCodeLine{00019\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec4\ \mbox{\hyperlink{namespaceexample_a36c0eedce847c92c9fc1bbff133589c4}{Vector4i}};}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec2\ \mbox{\hyperlink{namespaceexample_a345347526bba6746609db52f42c36506}{Vector2f}};}
+\DoxyCodeLine{00022\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec3\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}};}
+\DoxyCodeLine{00023\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec4\ \mbox{\hyperlink{namespaceexample_ad17d21cecf3b746caf2cc766788b8ba5}{Vector4f}};}
+\DoxyCodeLine{00024\ }
+\DoxyCodeLine{00025\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::quat\ \mbox{\hyperlink{namespaceexample_a2e7dc2f9ee4d58592d9982a67e43a58a}{Quaternion}};}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat2\ \mbox{\hyperlink{namespaceexample_a2e0249a74f34d1df4a623db218f94916}{Matrix22}};}
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat3\ \mbox{\hyperlink{namespaceexample_a441e3efa2ca4502d1a056880058fa3de}{Matrix33}};}
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::mat4\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec2\ \mbox{\hyperlink{namespaceexample_a046b6d6e8854921890fe2ff850a87091}{Point2i}};}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec3\ \mbox{\hyperlink{namespaceexample_a09dcf2310fc4e1962059c40e6c5c7e3c}{Point3i}};}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::ivec4\ \mbox{\hyperlink{namespaceexample_a7f355f8e2ade5b239d73bf6a019d8088}{Point4i}};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec2\ \mbox{\hyperlink{namespaceexample_a79bd0e08d22b9ff8b6245a038db005ab}{Point2f}};}
+\DoxyCodeLine{00036\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec3\ \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{Point3f}};}
+\DoxyCodeLine{00037\ \ \ \ \ \ \ \ \ \textcolor{keyword}{typedef}\ glm::fvec4\ \mbox{\hyperlink{namespaceexample_af7bbf76e43e095e61054c9983decb1d5}{Point4f}};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00039\ \ \ \ \ \ \ \ \ \textcolor{keyword}{template}<\ \textcolor{keyword}{class}\ CLASS\ >}
+\DoxyCodeLine{00040\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \textcolor{keyword}{const}\ \textcolor{keywordtype}{float}\ *\ \mbox{\hyperlink{namespaceexample_aeca69f22fd85743b08e15876bac6c6c2}{get\_values}}\ (\textcolor{keyword}{const}\ CLASS\ \&\ \textcolor{keywordtype}{object})}
+\DoxyCodeLine{00041\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00042\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::value\_ptr(\textcolor{keywordtype}{object});}
+\DoxyCodeLine{00043\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a2d0fd19907e53053a9264c1f697c77d2}{inverse}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix)}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::inverse\ (matrix);}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00049\ }
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_aa4de4c0544b3da576cbb1efefa32ef47}{transpose}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix)}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::transpose\ (matrix);}
+\DoxyCodeLine{00053\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a79b59711ac5e3012da1ee5f9a8a3b843}{translate}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}\ \&\ displacement)}
+\DoxyCodeLine{00056\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00057\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::translate\ (matrix,\ displacement);}
+\DoxyCodeLine{00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00059\ }
+\DoxyCodeLine{00060\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}})}
+\DoxyCodeLine{00061\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00062\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::scale\ (matrix,\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}(\mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}},\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}},\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}}));}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ scale\_x,\ \textcolor{keywordtype}{float}\ scale\_y,\ \textcolor{keywordtype}{float}\ scale\_z)}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::scale\ (matrix,\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}(scale\_x,\ scale\_y,\ scale\_z));}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00069\ }
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a7681dfa3ffe940ec3594bd5f5e93872c}{rotate\_around\_x}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(1.f,\ 0.f,\ 0.f));}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00074\ }
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a9e0fc20340a76b271e009682d4e16a03}{rotate\_around\_y}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00077\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(0.f,\ 1.f,\ 0.f));}
+\DoxyCodeLine{00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_ac993f3beefb32cc30bec3b3b8fb7f8e8}{rotate\_around\_z}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ matrix,\ \textcolor{keywordtype}{float}\ angle)}
+\DoxyCodeLine{00081\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00082\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::rotate\ (matrix,\ angle,\ glm::vec3(0.f,\ 0.f,\ 1.f));}
+\DoxyCodeLine{00083\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00085\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a0d5115275471f5dadce339f509b5c747}{perspective}}\ (\textcolor{keywordtype}{float}\ fov,\ \textcolor{keywordtype}{float}\ near\_d,\ \textcolor{keywordtype}{float}\ far\_d,\ \textcolor{keywordtype}{float}\ aspect\_ratio)}
+\DoxyCodeLine{00086\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::perspective\ (fov,\ aspect\_ratio,\ near\_d,\ far\_d);}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00089\ }
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_a345347526bba6746609db52f42c36506}{Vector2f}}\ \mbox{\hyperlink{namespaceexample_a42eb2789cfcc3face6e8a59e9dade0d1}{extract\_translation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a441e3efa2ca4502d1a056880058fa3de}{Matrix33}}\ \&\ transformation)}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}\ \&\ translation\ =\ transformation[2];}
+\DoxyCodeLine{00093\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceexample_a345347526bba6746609db52f42c36506}{Vector2f}}(translation[0],\ translation[1]);}
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00095\ }
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}\ \mbox{\hyperlink{namespaceexample_a42eb2789cfcc3face6e8a59e9dade0d1}{extract\_translation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ transformation)}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{const}\ \ \mbox{\hyperlink{namespaceexample_ad17d21cecf3b746caf2cc766788b8ba5}{Vector4f}}\ \&\ translation\ =\ transformation[3];}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}(translation[0],\ translation[1],\ translation[2]);}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_a2e7dc2f9ee4d58592d9982a67e43a58a}{Quaternion}}\ \mbox{\hyperlink{namespaceexample_a9c8265944df68f0db2ef847c53d05ab5}{extract\_rotation}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \&\ transformation)}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}};}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \ \ \ \ glm::quat\ rotation;}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ translation;}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec3\ skew;}
+\DoxyCodeLine{00108\ \ \ \ \ \ \ \ \ \ \ \ \ glm::vec4\ \mbox{\hyperlink{namespaceexample_a0d5115275471f5dadce339f509b5c747}{perspective}};}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \ \ \ \ \ \ \ \ glm::decompose\ (transformation,\ \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{scale}},\ rotation,\ translation,\ skew,\ \mbox{\hyperlink{namespaceexample_a0d5115275471f5dadce339f509b5c747}{perspective}});}
+\DoxyCodeLine{00111\ }
+\DoxyCodeLine{00112\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rotation;}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00114\ }
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \textcolor{keyword}{inline}\ \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}}\ \mbox{\hyperlink{namespaceexample_a72a70d5eafe8ff1e45c8f2165e2ad94f}{look\_at}}\ (\textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{Point3f}}\ \&\ from,\ \textcolor{keyword}{const}\ \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{Point3f}}\ \&\ to)}
+\DoxyCodeLine{00116\ \ \ \ \ \ \ \ \ \{}
+\DoxyCodeLine{00117\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ glm::lookAt\ (from,\ to,\ \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}(0.f,\ 1.f,\ 0.f));}
+\DoxyCodeLine{00118\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00119\ }
+\DoxyCodeLine{00120\ \ \ \ \ \}}
+\DoxyCodeLine{00121\ }
+\DoxyCodeLine{00122\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

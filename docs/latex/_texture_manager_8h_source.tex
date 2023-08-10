@@ -1,0 +1,25 @@
+\doxysection{Texture\+Manager.\+h}
+\hypertarget{_texture_manager_8h_source}{}\label{_texture_manager_8h_source}\index{source/TextureManager.h@{source/TextureManager.h}}
+\mbox{\hyperlink{_texture_manager_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <string>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <map>}}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{struct_texture_data}{TextureData}}\ \{}
+\DoxyCodeLine{00006\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{struct_texture_data_afce2660199b957ab84fb494e5937d771}{openGlTextureId}};}
+\DoxyCodeLine{00007\ \};}
+\DoxyCodeLine{00008\ }
+\DoxyCodeLine{00009\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_texture_manager}{TextureManager}}\ \{}
+\DoxyCodeLine{00010\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00011\ \ \ \ \ \mbox{\hyperlink{class_texture_manager_ad76abb178b37cedf4514eb0154349935}{TextureManager}}();}
+\DoxyCodeLine{00012\ \ \ \ \ \mbox{\hyperlink{class_texture_manager_a001d6d74674961db79987e3222682576}{\string~TextureManager}}();}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keywordtype}{bool}\ \mbox{\hyperlink{class_texture_manager_a083b5be2f77a5eb825d86a95efc3c4fc}{loadTexture}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id},\ \textcolor{keyword}{const}\ std::string\&\ filepath);}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keywordtype}{unsigned}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_texture_manager_af58e8ce1a562507c69c9be9670780c9f}{getTexture}}(\textcolor{keyword}{const}\ std::string\&\ \textcolor{keywordtype}{id});}
+\DoxyCodeLine{00016\ }
+\DoxyCodeLine{00017\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00018\ \ \ \ \ std::map<std::string,\ TextureData>\ textures;}
+\DoxyCodeLine{00019\ \};}
+
+\end{DoxyCode}

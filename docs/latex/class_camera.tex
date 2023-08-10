@@ -1,0 +1,99 @@
+\doxysection{Camera Class Reference}
+\hypertarget{class_camera}{}\label{class_camera}\index{Camera@{Camera}}
+
+
+Represents a camera in 3D space.  
+
+
+
+
+{\ttfamily \#include $<$Camera.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{class_camera_aec17d75513bee2b0c35a9214d6e76dab}{get\+\_\+view\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Get the view matrix for this camera. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{class_camera_a213be49c3edcf6e4cc6c35e5b33d821d}{get\+\_\+inverse\+\_\+transform\+\_\+matrix}} ()
+\begin{DoxyCompactList}\small\item\em Get the inverse of the transform matrix. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_camera_afd37eb5098867e6c4045c37eea9b3359}{handle\+\_\+input}} (sf\+::\+Window \&window, float delta\+\_\+time)
+\item 
+\mbox{\hyperlink{class_camera_ae23af4d7cab430c77d537621cdd16b3f}{Camera}} ()=default
+\item 
+\mbox{\hyperlink{class_camera_af6c982012f59a07c6d765bb0f9952214}{Camera}} (float fov, float near\+\_\+plane, float far\+\_\+plane, \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}} position, \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}} target, \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}} up)
+\item 
+void \mbox{\hyperlink{class_camera_af1ac9f9c442e3c36f6155ec195ee279b}{move\+\_\+camera}} (float x, float y, float z)
+\item 
+void \mbox{\hyperlink{class_camera_ae3a3e65c9bd9b7237579bf216a629d7a}{update\+\_\+directions}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Represents a camera in 3D space. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_camera_ae23af4d7cab430c77d537621cdd16b3f}\label{class_camera_ae23af4d7cab430c77d537621cdd16b3f} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [default]}}
+
+\Hypertarget{class_camera_af6c982012f59a07c6d765bb0f9952214}\label{class_camera_af6c982012f59a07c6d765bb0f9952214} 
+\index{Camera@{Camera}!Camera@{Camera}}
+\index{Camera@{Camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{Camera()}{Camera()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Camera\+::\+Camera (\begin{DoxyParamCaption}\item[{float}]{fov,  }\item[{float}]{near\+\_\+plane,  }\item[{float}]{far\+\_\+plane,  }\item[{\mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}}]{position,  }\item[{\mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}}]{target,  }\item[{\mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}}}]{up }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_camera_a213be49c3edcf6e4cc6c35e5b33d821d}\label{class_camera_a213be49c3edcf6e4cc6c35e5b33d821d} 
+\index{Camera@{Camera}!get\_inverse\_transform\_matrix@{get\_inverse\_transform\_matrix}}
+\index{get\_inverse\_transform\_matrix@{get\_inverse\_transform\_matrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{get\_inverse\_transform\_matrix()}{get\_inverse\_transform\_matrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} Camera\+::get\+\_\+inverse\+\_\+transform\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the inverse of the transform matrix. 
+
+\begin{DoxyReturn}{Returns}
+Inverse of the transform matrix 
+\end{DoxyReturn}
+\Hypertarget{class_camera_aec17d75513bee2b0c35a9214d6e76dab}\label{class_camera_aec17d75513bee2b0c35a9214d6e76dab} 
+\index{Camera@{Camera}!get\_view\_matrix@{get\_view\_matrix}}
+\index{get\_view\_matrix@{get\_view\_matrix}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{get\_view\_matrix()}{get\_view\_matrix()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} Camera\+::get\+\_\+view\+\_\+matrix (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the view matrix for this camera. 
+
+\begin{DoxyReturn}{Returns}
+4x4 view matrix 
+\end{DoxyReturn}
+\Hypertarget{class_camera_afd37eb5098867e6c4045c37eea9b3359}\label{class_camera_afd37eb5098867e6c4045c37eea9b3359} 
+\index{Camera@{Camera}!handle\_input@{handle\_input}}
+\index{handle\_input@{handle\_input}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{handle\_input()}{handle\_input()}}
+{\footnotesize\ttfamily void Camera\+::handle\+\_\+input (\begin{DoxyParamCaption}\item[{sf\+::\+Window \&}]{window,  }\item[{float}]{delta\+\_\+time }\end{DoxyParamCaption})}
+
+\Hypertarget{class_camera_af1ac9f9c442e3c36f6155ec195ee279b}\label{class_camera_af1ac9f9c442e3c36f6155ec195ee279b} 
+\index{Camera@{Camera}!move\_camera@{move\_camera}}
+\index{move\_camera@{move\_camera}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{move\_camera()}{move\_camera()}}
+{\footnotesize\ttfamily void Camera\+::move\+\_\+camera (\begin{DoxyParamCaption}\item[{float}]{x,  }\item[{float}]{y,  }\item[{float}]{z }\end{DoxyParamCaption})}
+
+\Hypertarget{class_camera_ae3a3e65c9bd9b7237579bf216a629d7a}\label{class_camera_ae3a3e65c9bd9b7237579bf216a629d7a} 
+\index{Camera@{Camera}!update\_directions@{update\_directions}}
+\index{update\_directions@{update\_directions}!Camera@{Camera}}
+\doxysubsubsection{\texorpdfstring{update\_directions()}{update\_directions()}}
+{\footnotesize\ttfamily void Camera\+::update\+\_\+directions (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+source/\mbox{\hyperlink{_camera_8h}{Camera.\+h}}\item 
+source/\mbox{\hyperlink{_camera_8cpp}{Camera.\+cpp}}\end{DoxyCompactItemize}

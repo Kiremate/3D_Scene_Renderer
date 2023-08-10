@@ -1,0 +1,14 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__mesh_8h" xml:lang="en-US">
+<title>source/Mesh.h File Reference</title>
+<indexterm><primary>source/Mesh.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;Node.h&quot;<?linebreak?>#include &quot;MeshData.h&quot;<?linebreak?>#include &quot;Rasterizer.hpp&quot;<?linebreak?>#include &lt;string&gt;<?linebreak?>#include &quot;Camera.h&quot;<?linebreak?>#include &quot;Light.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_class_mesh">Mesh</link></para>
+
+<para>Represents a 3D mesh in a scene. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

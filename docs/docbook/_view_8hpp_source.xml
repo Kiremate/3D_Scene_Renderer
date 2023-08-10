@@ -1,0 +1,66 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__view_8hpp_source" xml:lang="en-US">
+<title>View.hpp</title>
+<indexterm><primary>source/View.hpp</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 
+2 <emphasis role="comment">//&#32;Este&#32;código&#32;es&#32;de&#32;dominio&#32;público.</emphasis>
+3 <emphasis role="comment">//&#32;angel.rodriguez@esne.edu</emphasis>
+4 <emphasis role="comment">//&#32;2013.12&#32;-&#32;2021.04</emphasis>
+5 
+6 <emphasis role="preprocessor">#ifndef&#32;VIEW_HEADER</emphasis>
+7 <emphasis role="preprocessor">#define&#32;VIEW_HEADER</emphasis>
+8 
+9 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;Color_Buffer.hpp&gt;</emphasis>
+10 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;cstdlib&gt;</emphasis>
+11 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="_math_8hpp">math.hpp</link>&quot;</emphasis>
+12 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="__rasterizer_8hpp">Rasterizer.hpp</link>&quot;</emphasis>
+13 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;vector&gt;</emphasis>
+14 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="__camera_8h">Camera.h</link>&quot;</emphasis>
+15 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&lt;memory&gt;</emphasis>
+16 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="__mesh_8h">Mesh.h</link>&quot;</emphasis>
+17 <emphasis role="preprocessor">&#32;&#32;&#32;&#32;#include&#32;&quot;<link linkend="__light_8h">Light.h</link>&quot;</emphasis>
+18 &#32;&#32;&#32;&#32;<emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceexample">example</link>
+19 &#32;&#32;&#32;&#32;{
+20 
+21 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;&#32;</emphasis>std::vector;
+22 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>argb::Rgb888;
+23 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>argb::Color_Buffer;
+24 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>std::shared_ptr;&#32;&#32;&#32;
+33 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_classexample_1_1_view">View</link>
+34 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;{
+35 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+36 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+37 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;Rgb888&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Color;
+38 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;Color_Buffer&lt;&#32;Color&#32;&gt;&#32;Color_Buffer;
+39 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;<link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link>&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Vertex;
+40 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;vector&lt;&#32;Vertex&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;Vertex_Buffer;
+41 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;vector&lt;&#32;int&#32;&#32;&#32;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;Index_Buffer;
+42 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;vector&lt;&#32;Color&#32;&#32;&gt;&#32;&#32;&#32;&#32;&#32;&#32;Vertex_Colors;
+43 
+44 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+45 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::shared_ptr&lt;Node&gt;&#32;root;&#32;
+46 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;vector&lt;&#32;shared_ptr&lt;Mesh&gt;&#32;&gt;&#32;meshes;&#32;&#32;
+47 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Color_Buffer&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;color_buffer;&#32;&#32;
+48 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_rasterizer">Rasterizer&lt; Color_Buffer &gt;</link>&#32;rasterizer;&#32;&#32;&#32;&#32;
+49 
+50 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_camera">Camera</link>&#32;camera;&#32;&#32;&#32;
+51 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;width;&#32;&#32;
+52 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;height;&#32;
+53 
+54 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+55 &#32;&#32;&#32;&#32;&#32;&#32;&#32;
+62 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_classexample_1_1_view">View</link>(<emphasis role="keywordtype">unsigned</emphasis>&#32;width,&#32;<emphasis role="keywordtype">unsigned</emphasis>&#32;height);
+63 
+64 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_view_1a5d7943a77bb6ce297fccd2bbfbda3701">update</link>&#32;();
+65 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_classexample_1_1_view_1a10ea89fc705a2ba2252f673499524bf2">render</link>&#32;();
+66 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_class_camera">Camera</link>&amp;&#32;<link linkend="_classexample_1_1_view_1ad301a9b837054c39fbd35d379409bc60">get_camera</link>();
+67 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keyword">private</emphasis>:
+68 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_struct_light">Light</link>&#32;light;&#32;&#32;
+69 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;Color&#32;ambient_color;&#32;&#32;
+70 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;rand_clamp()&#32;{&#32;<emphasis role="keywordflow">return</emphasis>&#32;float(rand()&#32;&amp;&#32;0xff)&#32;*&#32;0.0039215f;&#32;}&#32;&#32;
+71 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;};
+72 
+73 &#32;&#32;&#32;&#32;}
+74 
+75 <emphasis role="preprocessor">#endif</emphasis>
+</programlisting></section>

@@ -1,0 +1,96 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classexample_1_1_view" xml:lang="en-US">
+<title>example::View Class Reference</title>
+<indexterm><primary>example::View</primary></indexterm>
+<para>
+
+<para>Class for managing the rendering of 3D objects in a scene. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;View.hpp&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classexample_1_1_view_1a59e3a8eaa4719446cddb1c3733310061">View</link> (unsigned width, unsigned height)</para>
+
+<para>Constructor for <link linkend="_classexample_1_1_view">View</link>. </para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_view_1a5d7943a77bb6ce297fccd2bbfbda3701">update</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_view_1a10ea89fc705a2ba2252f673499524bf2">render</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_camera">Camera</link> &amp; <link linkend="_classexample_1_1_view_1ad301a9b837054c39fbd35d379409bc60">get_camera</link> ()</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Class for managing the rendering of 3D objects in a scene. </para>
+
+
+
+<para>The <link linkend="_classexample_1_1_view">View</link> class handles updating and rendering the objects in a scene. It uses a camera to calculate the view matrix, a light for shading, and a color buffer and rasterizer for rendering the scene. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classexample_1_1_view_1a59e3a8eaa4719446cddb1c3733310061"/><section>
+    <title>View()</title>
+<indexterm><primary>View</primary><secondary>example::View</secondary></indexterm>
+<indexterm><primary>example::View</primary><secondary>View</secondary></indexterm>
+<para><computeroutput>example::View::View (unsigned width, unsigned height)</computeroutput></para><para>
+
+<para>Constructor for <link linkend="_classexample_1_1_view">View</link>. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>width</entry><entry>
+<para>Width of the view. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>height</entry><entry>
+<para>Height of the view. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classexample_1_1_view_1ad301a9b837054c39fbd35d379409bc60"/><section>
+    <title>get_camera()</title>
+<indexterm><primary>get_camera</primary><secondary>example::View</secondary></indexterm>
+<indexterm><primary>example::View</primary><secondary>get_camera</secondary></indexterm>
+<para><computeroutput><link linkend="_class_camera">Camera</link> &amp; example::View::get_camera ( )</computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_view_1a10ea89fc705a2ba2252f673499524bf2"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>example::View</secondary></indexterm>
+<indexterm><primary>example::View</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void example::View::render ( )</computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_view_1a5d7943a77bb6ce297fccd2bbfbda3701"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>example::View</secondary></indexterm>
+<indexterm><primary>example::View</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void example::View::update ( )</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following files:</para>
+source/<link linkend="__view_8hpp">View.hpp</link>source/<link linkend="__view_8cpp">View.cpp</link></section>
+</section>

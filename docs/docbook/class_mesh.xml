@@ -1,0 +1,260 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_mesh" xml:lang="en-US">
+<title>Mesh Class Reference</title>
+<indexterm><primary>Mesh</primary></indexterm>
+<para>
+
+<para>Represents a 3D mesh in a scene. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Mesh.h&gt;</computeroutput>
+</para>
+<para>Inheritance diagram for Mesh:    <informalfigure>
+        <mediaobject>
+            <imageobject>
+                <imagedata width="50%" align="center" valign="middle" scalefit="0" fileref="class_mesh.png"></imagedata>
+            </imageobject>
+        </mediaobject>
+    </informalfigure>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_mesh_1acfbe452ada8c4ddea9c6947e59f51c85">Mesh</link> (const std::string &amp;file_path, <link linkend="_class_camera">Camera</link> &amp;<link linkend="_class_mesh_1a1523855b508c03c7a7d04e71105a4dbb">camera</link>, Color_Buffer &amp;<link linkend="_class_mesh_1a49fa28ffefcb70eadac4922f24256df1">color_buffer</link>, <link linkend="_classexample_1_1_rasterizer">Rasterizer</link>&lt; Color_Buffer &gt; &amp;<link linkend="_class_mesh_1a6cd1f196ccf4e43e75a5438fdcc3d986">rasterizer</link>, float width, float height)</para>
+
+<para>Constructs a new <link linkend="_class_mesh">Mesh</link> object. </para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> <link linkend="_class_mesh_1ad59a768b959b399e61be831f14e37074">transform_vector</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &amp;vector)</para>
+
+<para>Transforms a vector by a given matrix. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_mesh_1ad98ece0a97bea870cf86e3009cdb02c5">update</link> ()</para>
+
+<para>Updates the transform matrix of the mesh. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_mesh_1acb5ca3d8dff24a83d04529f208e9fe22">render</link> (const <link linkend="_struct_light">Light</link> &amp;light, Rgb888 ambient_lighting)</para>
+
+<para>Renders the mesh with given lighting conditions. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Member Functions inherited from <link linkend="_class_node">Node</link>        <itemizedlist>
+            <listitem><para><link linkend="_class_node_1ae3d68123f770b80e09261594d99eedb5">Node</link> (const glm::mat4 &amp;<link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link>=glm::mat4(1.0f))</para>
+
+<para>Constructor for <link linkend="_class_node">Node</link>. </para>
+</listitem>
+            <listitem><para>void <link linkend="_class_node_1a36ab59d094fe2dd2b2d8087c7fe3c955">addChild</link> (std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; child)</para>
+
+<para>Adds a child to this node. </para>
+</listitem>
+        </itemizedlist>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classexample_1_1_mesh_data">MeshData</link> <link linkend="_class_mesh_1a5926a0196fa74e394d4c246fd34bb16b">meshData</link></para>
+</listitem>
+            <listitem><para><link linkend="_class_camera">Camera</link> &amp; <link linkend="_class_mesh_1a1523855b508c03c7a7d04e71105a4dbb">camera</link></para>
+</listitem>
+            <listitem><para>Color_Buffer &amp; <link linkend="_class_mesh_1a49fa28ffefcb70eadac4922f24256df1">color_buffer</link></para>
+</listitem>
+            <listitem><para><link linkend="_classexample_1_1_rasterizer">Rasterizer</link>&lt; Color_Buffer &gt; &amp; <link linkend="_class_mesh_1a6cd1f196ccf4e43e75a5438fdcc3d986">rasterizer</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+Public Attributes inherited from <link linkend="_class_node">Node</link>        <itemizedlist>
+            <listitem><para>std::vector&lt; std::shared_ptr&lt; <link linkend="_class_node">Node</link> &gt; &gt; <link linkend="_class_node_1a44f29c4de616705e4f8405e80d869825">children</link></para>
+
+<para>This node&apos;s children. </para>
+</listitem>
+            <listitem><para>std::weak_ptr&lt; <link linkend="_class_node">Node</link> &gt; <link linkend="_class_node_1a99e65d6b9186c551371b95ea3845b6fd">parent</link></para>
+
+<para>This node&apos;s parent. </para>
+</listitem>
+            <listitem><para>glm::mat4 <link linkend="_class_node_1a202b435051de75ea0d7ce43ea93ca9a9">transformation</link></para>
+
+<para>Stores the transformation matrix for this node. </para>
+</listitem>
+        </itemizedlist>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a 3D mesh in a scene. </para>
+
+
+
+<para>The <link linkend="_class_mesh">Mesh</link> class is responsible for storing the mesh data, transforming it, and rendering it to a color buffer. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_mesh_1acfbe452ada8c4ddea9c6947e59f51c85"/><section>
+    <title>Mesh()</title>
+<indexterm><primary>Mesh</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>Mesh</secondary></indexterm>
+<para><computeroutput>Mesh::Mesh (const std::string &amp; file_path, <link linkend="_class_camera">Camera</link> &amp; camera, Color_Buffer &amp; color_buffer, <link linkend="_classexample_1_1_rasterizer">Rasterizer</link>&lt; Color_Buffer &gt; &amp; rasterizer, float width, float height)</computeroutput></para><para>
+
+<para>Constructs a new <link linkend="_class_mesh">Mesh</link> object. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>file_path</entry><entry>
+<para>Path to the mesh file. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>camera</entry><entry>
+<para>Reference to the existing camera. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color_buffer</entry><entry>
+<para>Reference to the existing color buffer. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>rasterizer</entry><entry>
+<para>Reference to the existing rasterizer. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>width</entry><entry>
+<para>Width of the mesh. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>height</entry><entry>
+<para>Height of the mesh. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_mesh_1acb5ca3d8dff24a83d04529f208e9fe22"/><section>
+    <title>render()</title>
+<indexterm><primary>render</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>render</secondary></indexterm>
+<para><computeroutput>void Mesh::render (const <link linkend="_struct_light">Light</link> &amp; light, Rgb888 ambient_lighting)</computeroutput></para><para>
+
+<para>Renders the mesh with given lighting conditions. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>light</entry><entry>
+<para>Reference to the light object. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>ambient_lighting</entry><entry>
+<para>Ambient lighting color. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+<anchor xml:id="_class_mesh_1ad59a768b959b399e61be831f14e37074"/><section>
+    <title>transform_vector()</title>
+<indexterm><primary>transform_vector</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>transform_vector</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> Mesh::transform_vector (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &amp; vector)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Transforms a vector by a given matrix. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>matrix</entry><entry>
+<para>Transformation matrix. </para>
+</entry>
+                            </row>
+                            <row>
+<entry>vector</entry><entry>
+<para>Vector to transform. </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                <formalpara><title>Returns</title>
+
+<para>Transformed vector. </para>
+</formalpara>
+</para>
+</section>
+<anchor xml:id="_class_mesh_1ad98ece0a97bea870cf86e3009cdb02c5"/><section>
+    <title>update()</title>
+<indexterm><primary>update</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>update</secondary></indexterm>
+<para><computeroutput>void Mesh::update ( )</computeroutput></para><para>
+
+<para>Updates the transform matrix of the mesh. </para>
+</para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_class_mesh_1a1523855b508c03c7a7d04e71105a4dbb"/><section>
+    <title>camera</title>
+<indexterm><primary>camera</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>camera</secondary></indexterm>
+<para><computeroutput><link linkend="_class_camera">Camera</link>&amp; Mesh::camera</computeroutput></para></section>
+<anchor xml:id="_class_mesh_1a49fa28ffefcb70eadac4922f24256df1"/><section>
+    <title>color_buffer</title>
+<indexterm><primary>color_buffer</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>color_buffer</secondary></indexterm>
+<para><computeroutput>Color_Buffer&amp; Mesh::color_buffer</computeroutput></para></section>
+<anchor xml:id="_class_mesh_1a5926a0196fa74e394d4c246fd34bb16b"/><section>
+    <title>meshData</title>
+<indexterm><primary>meshData</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>meshData</secondary></indexterm>
+<para><computeroutput><link linkend="_classexample_1_1_mesh_data">MeshData</link> Mesh::meshData</computeroutput></para></section>
+<anchor xml:id="_class_mesh_1a6cd1f196ccf4e43e75a5438fdcc3d986"/><section>
+    <title>rasterizer</title>
+<indexterm><primary>rasterizer</primary><secondary>Mesh</secondary></indexterm>
+<indexterm><primary>Mesh</primary><secondary>rasterizer</secondary></indexterm>
+<para><computeroutput><link linkend="_classexample_1_1_rasterizer">Rasterizer</link>&lt;Color_Buffer&gt;&amp; Mesh::rasterizer</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following files:</para>
+source/<link linkend="__mesh_8h">Mesh.h</link>source/<link linkend="__mesh_8cpp">Mesh.cpp</link></section>
+</section>

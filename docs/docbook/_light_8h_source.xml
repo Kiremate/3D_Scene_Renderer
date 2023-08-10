@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__light_8h_source" xml:lang="en-US">
+<title>Light.h</title>
+<indexterm><primary>source/Light.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_math_8hpp">math.hpp</link>&quot;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;Color_Buffer.hpp&gt;</emphasis>
+4 
+5 <emphasis role="keyword">using&#32;</emphasis>argb::Rgb888;
+6 <emphasis role="keyword">typedef</emphasis>&#32;Rgb888&#32;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link>;
+11 <emphasis role="keyword">struct&#32;</emphasis><link linkend="_struct_light">Light</link>
+12 {
+13 &#32;&#32;&#32;&#32;Vector3f&#32;<link linkend="_struct_light_1ab830c6ade5d6a5cb7306cc7803ba92bf">position</link>;&#32;
+14 &#32;&#32;&#32;&#32;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link>&#32;<link linkend="_struct_light_1ad7a168d26aed1bf7cca1a8d8e6f8ada4">color</link>;&#32;
+15 &#32;&#32;&#32;&#32;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link>&#32;<link linkend="_struct_light_1aa6c629968d4bd3bcf77c7f78630ee5aa">specular_color</link>;&#32;
+16 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">float</emphasis>&#32;<link linkend="_struct_light_1a916d1fdad0ea12c41165fc247219944d">shininess</link>;&#32;
+17 
+26 &#32;&#32;&#32;&#32;<link linkend="_struct_light_1aad4fb273ab8e1969509248ee1d73544a">Light</link>(<emphasis role="keyword">const</emphasis>&#32;Vector3f&amp;&#32;position_,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link>&amp;&#32;color_,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link>&amp;&#32;specular_color_,&#32;<emphasis role="keywordtype">float</emphasis>&#32;shininess_)
+27 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;:&#32;<link linkend="_struct_light_1ab830c6ade5d6a5cb7306cc7803ba92bf">position</link>(position_),&#32;<link linkend="_struct_light_1ad7a168d26aed1bf7cca1a8d8e6f8ada4">color</link>(color_),&#32;<link linkend="_struct_light_1aa6c629968d4bd3bcf77c7f78630ee5aa">specular_color</link>(specular_color_),&#32;<link linkend="_struct_light_1a916d1fdad0ea12c41165fc247219944d">shininess</link>(shininess_)
+28 &#32;&#32;&#32;&#32;{}
+29 };
+</programlisting></section>

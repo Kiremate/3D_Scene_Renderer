@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_annotated" xml:lang="en-US">
+<title>Class List</title>
+Here are the classes, structs, unions and interfaces with brief descriptions:<link linkend="_class_camera">Camera</link>
+<para>Represents a camera in 3D space </para>
+<link linkend="_struct_light">Light</link>
+<para>Represents a light source in a 3D scene </para>
+<link linkend="_class_mesh">Mesh</link>
+<para>Represents a 3D mesh in a scene </para>
+<link linkend="_classexample_1_1_mesh_data">example::MeshData</link>
+<para>Contains the data structures needed for a 3D mesh </para>
+<link linkend="_class_node">Node</link>
+<para>Class representing a node in a scene graph </para>
+<link linkend="_classexample_1_1_rasterizer">example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</link><link linkend="_class_scene">Scene</link><link linkend="_struct_texture_data">TextureData</link><link linkend="_class_texture_manager">TextureManager</link><link linkend="_struct_transform">Transform</link>
+<para>Represents a 3D transformation including position, rotation and scale </para>
+<link linkend="_classexample_1_1_view">example::View</link>
+<para>Class for managing the rendering of 3D objects in a scene </para>
+</section>

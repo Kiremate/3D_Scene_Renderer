@@ -1,0 +1,22 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__scene_8h_source" xml:lang="en-US">
+<title>Scene.h</title>
+<indexterm><primary>source/Scene.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 
+3 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__node_8h">Node.h</link>&quot;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__mesh_8h">Mesh.h</link>&quot;</emphasis>
+5 <emphasis role="preprocessor">#include&#32;&lt;memory&gt;</emphasis>
+6 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="__rasterizer_8hpp">Rasterizer.hpp</link>&quot;</emphasis>
+7 
+8 <emphasis role="keyword">class&#32;</emphasis><link linkend="_class_scene">Scene</link>
+9 {
+10 <emphasis role="keyword">public</emphasis>:
+11 &#32;&#32;&#32;&#32;std::shared_ptr&lt;Node&gt;&#32;<link linkend="_class_scene_1ae74ce09f9daac5284f4e30faf27f9360">root</link>;
+12 
+13 &#32;&#32;&#32;&#32;<link linkend="_class_scene_1ad10176d75a9cc0da56626f682d083507">Scene</link>();
+14 
+15 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_scene_1ab18688256a68356105c9b1f014884ba2">render</link>(<link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt;&#32;example::Color_Buffer&lt;example::Rgb888&gt;&#32;&gt;&amp;&#32;rasterizer,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link>&amp;&#32;view_projection_matrix);
+16 &#32;&#32;&#32;&#32;<emphasis role="keywordtype">void</emphasis>&#32;<link linkend="_class_scene_1a1dcc8e88d124fa094d7f830a6014f5c5">traverse_and_render</link>(<emphasis role="keyword">const</emphasis>&#32;std::shared_ptr&lt;Node&gt;&amp;&#32;node,&#32;<link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt;&#32;example::Color_Buffer&lt;example::Rgb888&gt;&#32;&gt;&amp;&#32;rasterizer,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link>&amp;&#32;view_projection_matrix,&#32;<emphasis role="keyword">const</emphasis>&#32;<link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link>&amp;&#32;parent_transform);
+17 };
+</programlisting></section>

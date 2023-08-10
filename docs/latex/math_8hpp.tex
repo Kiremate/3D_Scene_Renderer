@@ -1,0 +1,77 @@
+\doxysection{source/math.hpp File Reference}
+\hypertarget{math_8hpp}{}\label{math_8hpp}\index{source/math.hpp@{source/math.hpp}}
+{\ttfamily \#include $<$glm/glm.\+hpp$>$}\newline
+{\ttfamily \#include $<$glm/gtc/type\+\_\+ptr.\+hpp$>$}\newline
+{\ttfamily \#include $<$glm/gtx/matrix\+\_\+decompose.\+hpp$>$}\newline
+{\ttfamily \#include $<$glm/gtc/matrix\+\_\+transform.\+hpp$>$}\newline
+\doxysubsubsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+namespace \mbox{\hyperlink{namespaceexample}{example}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef glm\+::ivec2 \mbox{\hyperlink{namespaceexample_ad90f8f3531274de4a0fe19430613e60e}{example\+::\+Vector2i}}
+\item 
+typedef glm\+::ivec3 \mbox{\hyperlink{namespaceexample_a81ed02d00d816259b28772dfe5c45386}{example\+::\+Vector3i}}
+\item 
+typedef glm\+::ivec4 \mbox{\hyperlink{namespaceexample_a36c0eedce847c92c9fc1bbff133589c4}{example\+::\+Vector4i}}
+\item 
+typedef glm\+::fvec2 \mbox{\hyperlink{namespaceexample_a345347526bba6746609db52f42c36506}{example\+::\+Vector2f}}
+\item 
+typedef glm\+::fvec3 \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{example\+::\+Vector3f}}
+\item 
+typedef glm\+::fvec4 \mbox{\hyperlink{namespaceexample_ad17d21cecf3b746caf2cc766788b8ba5}{example\+::\+Vector4f}}
+\item 
+typedef glm\+::quat \mbox{\hyperlink{namespaceexample_a2e7dc2f9ee4d58592d9982a67e43a58a}{example\+::\+Quaternion}}
+\item 
+typedef glm\+::mat2 \mbox{\hyperlink{namespaceexample_a2e0249a74f34d1df4a623db218f94916}{example\+::\+Matrix22}}
+\item 
+typedef glm\+::mat3 \mbox{\hyperlink{namespaceexample_a441e3efa2ca4502d1a056880058fa3de}{example\+::\+Matrix33}}
+\item 
+typedef glm\+::mat4 \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{example\+::\+Matrix44}}
+\item 
+typedef glm\+::ivec2 \mbox{\hyperlink{namespaceexample_a046b6d6e8854921890fe2ff850a87091}{example\+::\+Point2i}}
+\item 
+typedef glm\+::ivec3 \mbox{\hyperlink{namespaceexample_a09dcf2310fc4e1962059c40e6c5c7e3c}{example\+::\+Point3i}}
+\item 
+typedef glm\+::ivec4 \mbox{\hyperlink{namespaceexample_a7f355f8e2ade5b239d73bf6a019d8088}{example\+::\+Point4i}}
+\item 
+typedef glm\+::fvec2 \mbox{\hyperlink{namespaceexample_a79bd0e08d22b9ff8b6245a038db005ab}{example\+::\+Point2f}}
+\item 
+typedef glm\+::fvec3 \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{example\+::\+Point3f}}
+\item 
+typedef glm\+::fvec4 \mbox{\hyperlink{namespaceexample_af7bbf76e43e095e61054c9983decb1d5}{example\+::\+Point4f}}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$class CLASS $>$ }\\const float \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{namespaceexample_aeca69f22fd85743b08e15876bac6c6c2}{example\+::get\+\_\+values}} (const CLASS \&object)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a2d0fd19907e53053a9264c1f697c77d2}{example\+::inverse}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_aa4de4c0544b3da576cbb1efefa32ef47}{example\+::transpose}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a79b59711ac5e3012da1ee5f9a8a3b843}{example\+::translate}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, const \mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}} \&displacement)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a8b34e421377de7d6f66565aa1a6cde3e}{example\+::scale}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, float scale)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a23ba406849dbdf13d7cd4d6d5cf5e069}{example\+::scale}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, float scale\+\_\+x, float scale\+\_\+y, float scale\+\_\+z)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a7681dfa3ffe940ec3594bd5f5e93872c}{example\+::rotate\+\_\+around\+\_\+x}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a9e0fc20340a76b271e009682d4e16a03}{example\+::rotate\+\_\+around\+\_\+y}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_ac993f3beefb32cc30bec3b3b8fb7f8e8}{example\+::rotate\+\_\+around\+\_\+z}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&matrix, float angle)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a0d5115275471f5dadce339f509b5c747}{example\+::perspective}} (float fov, float near\+\_\+d, float far\+\_\+d, float aspect\+\_\+ratio)
+\item 
+\mbox{\hyperlink{namespaceexample_a345347526bba6746609db52f42c36506}{Vector2f}} \mbox{\hyperlink{namespaceexample_a42eb2789cfcc3face6e8a59e9dade0d1}{example\+::extract\+\_\+translation}} (const \mbox{\hyperlink{namespaceexample_a441e3efa2ca4502d1a056880058fa3de}{Matrix33}} \&transformation)
+\item 
+\mbox{\hyperlink{namespaceexample_a38ad2986a85f3b298f71393ac1547911}{Vector3f}} \mbox{\hyperlink{namespaceexample_a345566d7dbac2159e07734de6ebacc4e}{example\+::extract\+\_\+translation}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&transformation)
+\item 
+\mbox{\hyperlink{namespaceexample_a2e7dc2f9ee4d58592d9982a67e43a58a}{Quaternion}} \mbox{\hyperlink{namespaceexample_a9c8265944df68f0db2ef847c53d05ab5}{example\+::extract\+\_\+rotation}} (const \mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \&transformation)
+\item 
+\mbox{\hyperlink{namespaceexample_ad6d98c4ddd603df3b4e23a91cf307221}{Matrix44}} \mbox{\hyperlink{namespaceexample_a72a70d5eafe8ff1e45c8f2165e2ad94f}{example\+::look\+\_\+at}} (const \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{Point3f}} \&from, const \mbox{\hyperlink{namespaceexample_a4b875ff2003afa3e6e86469b4bb9c499}{Point3f}} \&to)
+\end{DoxyCompactItemize}

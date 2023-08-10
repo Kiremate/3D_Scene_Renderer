@@ -1,0 +1,18 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__camera_8h" xml:lang="en-US">
+<title>source/Camera.h File Reference</title>
+<indexterm><primary>source/Camera.h</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &quot;math.hpp&quot;<?linebreak?>#include &lt;SFML/Window.hpp&gt;<?linebreak?>#include &lt;glm/glm.hpp&gt;<?linebreak?>#include &lt;glm/gtc/matrix_transform.hpp&gt;<?linebreak?>#include &lt;glm/gtc/quaternion.hpp&gt;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>struct <link linkend="_struct_transform">Transform</link></para>
+
+<para>Represents a 3D transformation including position, rotation and scale. </para>
+</listitem>
+            <listitem><para>class <link linkend="_class_camera">Camera</link></para>
+
+<para>Represents a camera in 3D space. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

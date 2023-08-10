@@ -431,6 +431,44 @@
         public:
 
             Additive_Primaries() = default;
+            // Added by bloodmask
+            Additive_Primaries& operator*=(const Additive_Primaries& other)
+            {
+                set(
+                    red() * other.red(),
+                    green() * other.green(),
+                    blue() * other.blue()
+                );
+                return *this;
+            }
+
+            // Added by bloodmask
+            Additive_Primaries operator*(const Additive_Primaries& other) const
+            {
+                return Additive_Primaries(
+                    static_cast<uint8_t>((static_cast<int>(red()) * other.red()) / 255),
+                    static_cast<uint8_t>((static_cast<int>(green()) * other.green()) / 255),
+                    static_cast<uint8_t>((static_cast<int>(blue()) * other.blue()) / 255)
+                );
+            }
+            // Added by bloodmask
+            Additive_Primaries operator+(const Additive_Primaries& other) const
+            {
+                return Additive_Primaries(
+                    static_cast<uint8_t>(std::min((static_cast<int>(red()) + other.red()), 255)),
+                    static_cast<uint8_t>(std::min((static_cast<int>(green()) + other.green()), 255)),
+                    static_cast<uint8_t>(std::min((static_cast<int>(blue()) + other.blue()), 255))
+                );
+            }
+            // Added by bloodmask
+            Additive_Primaries operator*(float f) const
+            {
+                return Additive_Primaries(
+                    static_cast<uint8_t>(std::max(std::min(static_cast<int>(red() * f), 255), 0)),
+                    static_cast<uint8_t>(std::max(std::min(static_cast<int>(green() * f), 255), 0)),
+                    static_cast<uint8_t>(std::max(std::min(static_cast<int>(blue() * f), 255), 0))
+                );
+            }
 
             Additive_Primaries
             (

@@ -1,0 +1,281 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_namespaceexample" xml:lang="en-US">
+<title>example Namespace Reference</title>
+<indexterm><primary>example</primary></indexterm>
+<simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classexample_1_1_mesh_data">MeshData</link></para>
+
+<para>Contains the data structures needed for a 3D mesh. </para>
+</listitem>
+            <listitem><para>class <link linkend="_classexample_1_1_rasterizer">Rasterizer</link></para>
+</listitem>
+            <listitem><para>class <link linkend="_classexample_1_1_view">View</link></para>
+
+<para>Class for managing the rendering of 3D objects in a scene. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Typedefs    </title>
+        <itemizedlist>
+            <listitem><para>typedef glm::ivec2 <link linkend="_namespaceexample_1ad90f8f3531274de4a0fe19430613e60e">Vector2i</link></para>
+</listitem>
+            <listitem><para>typedef glm::ivec3 <link linkend="_namespaceexample_1a81ed02d00d816259b28772dfe5c45386">Vector3i</link></para>
+</listitem>
+            <listitem><para>typedef glm::ivec4 <link linkend="_namespaceexample_1a36c0eedce847c92c9fc1bbff133589c4">Vector4i</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec2 <link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec3 <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec4 <link linkend="_namespaceexample_1ad17d21cecf3b746caf2cc766788b8ba5">Vector4f</link></para>
+</listitem>
+            <listitem><para>typedef glm::quat <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link></para>
+</listitem>
+            <listitem><para>typedef glm::mat2 <link linkend="_namespaceexample_1a2e0249a74f34d1df4a623db218f94916">Matrix22</link></para>
+</listitem>
+            <listitem><para>typedef glm::mat3 <link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">Matrix33</link></para>
+</listitem>
+            <listitem><para>typedef glm::mat4 <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link></para>
+</listitem>
+            <listitem><para>typedef glm::ivec2 <link linkend="_namespaceexample_1a046b6d6e8854921890fe2ff850a87091">Point2i</link></para>
+</listitem>
+            <listitem><para>typedef glm::ivec3 <link linkend="_namespaceexample_1a09dcf2310fc4e1962059c40e6c5c7e3c">Point3i</link></para>
+</listitem>
+            <listitem><para>typedef glm::ivec4 <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec2 <link linkend="_namespaceexample_1a79bd0e08d22b9ff8b6245a038db005ab">Point2f</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec3 <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link></para>
+</listitem>
+            <listitem><para>typedef glm::fvec4 <link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link></para>
+</listitem>
+            <listitem><para>typedef <link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link> <link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; <link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link> &gt; <link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; int &gt; <link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">Index_Buffer</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; Rgb888 &gt; <link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">Vertex_Colors</link></para>
+</listitem>
+            <listitem><para>typedef std::vector&lt; <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &gt; <link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Functions    </title>
+        <itemizedlist>
+            <listitem><para>template&lt;class CLASS &gt; </para><para>const float * <link linkend="_namespaceexample_1aeca69f22fd85743b08e15876bac6c6c2">get_values</link> (const CLASS &amp;object)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a2d0fd19907e53053a9264c1f697c77d2">inverse</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1aa4de4c0544b3da576cbb1efefa32ef47">transpose</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a79b59711ac5e3012da1ee5f9a8a3b843">translate</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &amp;displacement)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e">scale</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, float scale)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a23ba406849dbdf13d7cd4d6d5cf5e069">scale</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, float scale_x, float scale_y, float scale_z)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a7681dfa3ffe940ec3594bd5f5e93872c">rotate_around_x</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, float angle)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a9e0fc20340a76b271e009682d4e16a03">rotate_around_y</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, float angle)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1ac993f3beefb32cc30bec3b3b8fb7f8e8">rotate_around_z</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;matrix, float angle)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a0d5115275471f5dadce339f509b5c747">perspective</link> (float fov, float near_d, float far_d, float aspect_ratio)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link> <link linkend="_namespaceexample_1a42eb2789cfcc3face6e8a59e9dade0d1">extract_translation</link> (const <link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">Matrix33</link> &amp;transformation)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> <link linkend="_namespaceexample_1a345566d7dbac2159e07734de6ebacc4e">extract_translation</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;transformation)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link> <link linkend="_namespaceexample_1a9c8265944df68f0db2ef847c53d05ab5">extract_rotation</link> (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp;transformation)</para>
+</listitem>
+            <listitem><para><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> <link linkend="_namespaceexample_1a72a70d5eafe8ff1e45c8f2165e2ad94f">look_at</link> (const <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link> &amp;from, const <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link> &amp;to)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Typedef Documentation</title>
+<anchor xml:id="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051"/><section>
+    <title>Index_Buffer</title>
+<indexterm><primary>Index_Buffer</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Index_Buffer</secondary></indexterm>
+<para><computeroutput>typedef std::vector&lt;int&gt; <link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">example::Index_Buffer</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a2e0249a74f34d1df4a623db218f94916"/><section>
+    <title>Matrix22</title>
+<indexterm><primary>Matrix22</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Matrix22</secondary></indexterm>
+<para><computeroutput>typedef glm::mat2 <link linkend="_namespaceexample_1a2e0249a74f34d1df4a623db218f94916">example::Matrix22</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de"/><section>
+    <title>Matrix33</title>
+<indexterm><primary>Matrix33</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Matrix33</secondary></indexterm>
+<para><computeroutput>typedef glm::mat3 <link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">example::Matrix33</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221"/><section>
+    <title>Matrix44</title>
+<indexterm><primary>Matrix44</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Matrix44</secondary></indexterm>
+<para><computeroutput>typedef glm::mat4 <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">example::Matrix44</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a79bd0e08d22b9ff8b6245a038db005ab"/><section>
+    <title>Point2f</title>
+<indexterm><primary>Point2f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point2f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec2 <link linkend="_namespaceexample_1a79bd0e08d22b9ff8b6245a038db005ab">example::Point2f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a046b6d6e8854921890fe2ff850a87091"/><section>
+    <title>Point2i</title>
+<indexterm><primary>Point2i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point2i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec2 <link linkend="_namespaceexample_1a046b6d6e8854921890fe2ff850a87091">example::Point2i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499"/><section>
+    <title>Point3f</title>
+<indexterm><primary>Point3f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point3f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec3 <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">example::Point3f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a09dcf2310fc4e1962059c40e6c5c7e3c"/><section>
+    <title>Point3i</title>
+<indexterm><primary>Point3i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point3i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec3 <link linkend="_namespaceexample_1a09dcf2310fc4e1962059c40e6c5c7e3c">example::Point3i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5"/><section>
+    <title>Point4f</title>
+<indexterm><primary>Point4f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point4f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec4 <link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">example::Point4f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088"/><section>
+    <title>Point4i</title>
+<indexterm><primary>Point4i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Point4i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec4 <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">example::Point4i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a"/><section>
+    <title>Quaternion</title>
+<indexterm><primary>Quaternion</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Quaternion</secondary></indexterm>
+<para><computeroutput>typedef glm::quat <link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">example::Quaternion</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a345347526bba6746609db52f42c36506"/><section>
+    <title>Vector2f</title>
+<indexterm><primary>Vector2f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector2f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec2 <link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">example::Vector2f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1ad90f8f3531274de4a0fe19430613e60e"/><section>
+    <title>Vector2i</title>
+<indexterm><primary>Vector2i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector2i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec2 <link linkend="_namespaceexample_1ad90f8f3531274de4a0fe19430613e60e">example::Vector2i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911"/><section>
+    <title>Vector3f</title>
+<indexterm><primary>Vector3f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector3f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec3 <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">example::Vector3f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a81ed02d00d816259b28772dfe5c45386"/><section>
+    <title>Vector3i</title>
+<indexterm><primary>Vector3i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector3i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec3 <link linkend="_namespaceexample_1a81ed02d00d816259b28772dfe5c45386">example::Vector3i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1ad17d21cecf3b746caf2cc766788b8ba5"/><section>
+    <title>Vector4f</title>
+<indexterm><primary>Vector4f</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector4f</secondary></indexterm>
+<para><computeroutput>typedef glm::fvec4 <link linkend="_namespaceexample_1ad17d21cecf3b746caf2cc766788b8ba5">example::Vector4f</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a36c0eedce847c92c9fc1bbff133589c4"/><section>
+    <title>Vector4i</title>
+<indexterm><primary>Vector4i</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vector4i</secondary></indexterm>
+<para><computeroutput>typedef glm::ivec4 <link linkend="_namespaceexample_1a36c0eedce847c92c9fc1bbff133589c4">example::Vector4i</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa"/><section>
+    <title>Vertex</title>
+<indexterm><primary>Vertex</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vertex</secondary></indexterm>
+<para><computeroutput>typedef <link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link> <link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">example::Vertex</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d"/><section>
+    <title>Vertex_Buffer</title>
+<indexterm><primary>Vertex_Buffer</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vertex_Buffer</secondary></indexterm>
+<para><computeroutput>typedef std::vector&lt;<link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link>&gt; <link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">example::Vertex_Buffer</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a"/><section>
+    <title>Vertex_Colors</title>
+<indexterm><primary>Vertex_Colors</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vertex_Colors</secondary></indexterm>
+<para><computeroutput>typedef std::vector&lt;Rgb888&gt; <link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">example::Vertex_Colors</link></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87"/><section>
+    <title>Vertex_Normals</title>
+<indexterm><primary>Vertex_Normals</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>Vertex_Normals</secondary></indexterm>
+<para><computeroutput>typedef std::vector&lt; <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &gt; <link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">example::Vertex_Normals</link></computeroutput></para></section>
+</section>
+<section>
+<title>Function Documentation</title>
+<anchor xml:id="_namespaceexample_1a9c8265944df68f0db2ef847c53d05ab5"/><section>
+    <title>extract_rotation()</title>
+<indexterm><primary>extract_rotation</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>extract_rotation</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a2e7dc2f9ee4d58592d9982a67e43a58a">Quaternion</link> example::extract_rotation (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; transformation)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a42eb2789cfcc3face6e8a59e9dade0d1"/><section>
+    <title>extract_translation()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>extract_translation</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>extract_translation</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a345347526bba6746609db52f42c36506">Vector2f</link> example::extract_translation (const <link linkend="_namespaceexample_1a441e3efa2ca4502d1a056880058fa3de">Matrix33</link> &amp; transformation)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a345566d7dbac2159e07734de6ebacc4e"/><section>
+    <title>extract_translation()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>extract_translation</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>extract_translation</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> example::extract_translation (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; transformation)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1aeca69f22fd85743b08e15876bac6c6c2"/><section>
+    <title>get_values()</title>
+<indexterm><primary>get_values</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>get_values</secondary></indexterm>
+<computeroutput>template&lt;class CLASS &gt; </computeroutput><para><computeroutput>const float * example::get_values (const CLASS &amp; object)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a2d0fd19907e53053a9264c1f697c77d2"/><section>
+    <title>inverse()</title>
+<indexterm><primary>inverse</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>inverse</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::inverse (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a72a70d5eafe8ff1e45c8f2165e2ad94f"/><section>
+    <title>look_at()</title>
+<indexterm><primary>look_at</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>look_at</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::look_at (const <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link> &amp; from, const <link linkend="_namespaceexample_1a4b875ff2003afa3e6e86469b4bb9c499">Point3f</link> &amp; to)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a0d5115275471f5dadce339f509b5c747"/><section>
+    <title>perspective()</title>
+<indexterm><primary>perspective</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>perspective</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::perspective (float fov, float near_d, float far_d, float aspect_ratio)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a7681dfa3ffe940ec3594bd5f5e93872c"/><section>
+    <title>rotate_around_x()</title>
+<indexterm><primary>rotate_around_x</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>rotate_around_x</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::rotate_around_x (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, float angle)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a9e0fc20340a76b271e009682d4e16a03"/><section>
+    <title>rotate_around_y()</title>
+<indexterm><primary>rotate_around_y</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>rotate_around_y</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::rotate_around_y (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, float angle)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1ac993f3beefb32cc30bec3b3b8fb7f8e8"/><section>
+    <title>rotate_around_z()</title>
+<indexterm><primary>rotate_around_z</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>rotate_around_z</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::rotate_around_z (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, float angle)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a8b34e421377de7d6f66565aa1a6cde3e"/><section>
+    <title>scale()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>scale</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>scale</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::scale (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, float scale)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a23ba406849dbdf13d7cd4d6d5cf5e069"/><section>
+    <title>scale()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>scale</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>scale</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::scale (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, float scale_x, float scale_y, float scale_z)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1a79b59711ac5e3012da1ee5f9a8a3b843"/><section>
+    <title>translate()</title>
+<indexterm><primary>translate</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>translate</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::translate (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix, const <link linkend="_namespaceexample_1a38ad2986a85f3b298f71393ac1547911">Vector3f</link> &amp; displacement)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_namespaceexample_1aa4de4c0544b3da576cbb1efefa32ef47"/><section>
+    <title>transpose()</title>
+<indexterm><primary>transpose</primary><secondary>example</secondary></indexterm>
+<indexterm><primary>example</primary><secondary>transpose</secondary></indexterm>
+<para><computeroutput><link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> example::transpose (const <link linkend="_namespaceexample_1ad6d98c4ddd603df3b4e23a91cf307221">Matrix44</link> &amp; matrix)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+</section>
+</section>

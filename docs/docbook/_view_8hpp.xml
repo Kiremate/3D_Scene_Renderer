@@ -1,0 +1,21 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__view_8hpp" xml:lang="en-US">
+<title>source/View.hpp File Reference</title>
+<indexterm><primary>source/View.hpp</primary></indexterm>
+<programlisting linenumbering="unnumbered">#include &lt;Color_Buffer.hpp&gt;<?linebreak?>#include &lt;cstdlib&gt;<?linebreak?>#include &quot;math.hpp&quot;<?linebreak?>#include &quot;Rasterizer.hpp&quot;<?linebreak?>#include &lt;vector&gt;<?linebreak?>#include &quot;Camera.h&quot;<?linebreak?>#include &lt;memory&gt;<?linebreak?>#include &quot;Mesh.h&quot;<?linebreak?>#include &quot;Light.h&quot;<?linebreak?></programlisting><simplesect>
+    <title>Classes    </title>
+        <itemizedlist>
+            <listitem><para>class <link linkend="_classexample_1_1_view">example::View</link></para>
+
+<para>Class for managing the rendering of 3D objects in a scene. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Namespaces    </title>
+        <itemizedlist>
+            <listitem><para>namespace <link linkend="_namespaceexample">example</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+</section>

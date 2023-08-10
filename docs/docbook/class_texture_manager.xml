@@ -1,0 +1,49 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_class_texture_manager" xml:lang="en-US">
+<title>TextureManager Class Reference</title>
+<indexterm><primary>TextureManager</primary></indexterm>
+<para>
+<computeroutput>#include &lt;TextureManager.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_class_texture_manager_1ad76abb178b37cedf4514eb0154349935">TextureManager</link> ()</para>
+</listitem>
+            <listitem><para><link linkend="_class_texture_manager_1a001d6d74674961db79987e3222682576">~TextureManager</link> ()</para>
+</listitem>
+            <listitem><para>bool <link linkend="_class_texture_manager_1a083b5be2f77a5eb825d86a95efc3c4fc">loadTexture</link> (const std::string &amp;id, const std::string &amp;filepath)</para>
+</listitem>
+            <listitem><para>unsigned int <link linkend="_class_texture_manager_1af58e8ce1a562507c69c9be9670780c9f">getTexture</link> (const std::string &amp;id)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_class_texture_manager_1ad76abb178b37cedf4514eb0154349935"/><section>
+    <title>TextureManager()</title>
+<indexterm><primary>TextureManager</primary><secondary>TextureManager</secondary></indexterm>
+<indexterm><primary>TextureManager</primary><secondary>TextureManager</secondary></indexterm>
+<para><computeroutput>TextureManager::TextureManager ( )</computeroutput></para></section>
+<anchor xml:id="_class_texture_manager_1a001d6d74674961db79987e3222682576"/><section>
+    <title>~TextureManager()</title>
+<indexterm><primary>~TextureManager</primary><secondary>TextureManager</secondary></indexterm>
+<indexterm><primary>TextureManager</primary><secondary>~TextureManager</secondary></indexterm>
+<para><computeroutput>TextureManager::~TextureManager ( )</computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_class_texture_manager_1af58e8ce1a562507c69c9be9670780c9f"/><section>
+    <title>getTexture()</title>
+<indexterm><primary>getTexture</primary><secondary>TextureManager</secondary></indexterm>
+<indexterm><primary>TextureManager</primary><secondary>getTexture</secondary></indexterm>
+<para><computeroutput>GLuint TextureManager::getTexture (const std::string &amp; id)</computeroutput></para></section>
+<anchor xml:id="_class_texture_manager_1a083b5be2f77a5eb825d86a95efc3c4fc"/><section>
+    <title>loadTexture()</title>
+<indexterm><primary>loadTexture</primary><secondary>TextureManager</secondary></indexterm>
+<indexterm><primary>TextureManager</primary><secondary>loadTexture</secondary></indexterm>
+<para><computeroutput>bool TextureManager::loadTexture (const std::string &amp; id, const std::string &amp; filepath)</computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following files:</para>
+source/<link linkend="__texture_manager_8h">TextureManager.h</link>source/<link linkend="__texture_manager_8cpp">TextureManager.cpp</link></section>
+</section>

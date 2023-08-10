@@ -1,0 +1,138 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_struct_light" xml:lang="en-US">
+<title>Light Struct Reference</title>
+<indexterm><primary>Light</primary></indexterm>
+<para>
+
+<para>Represents a light source in a 3D scene. </para>
+ 
+</para>
+<para>
+<computeroutput>#include &lt;Light.h&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_struct_light_1aad4fb273ab8e1969509248ee1d73544a">Light</link> (const Vector3f &amp;position_, const <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> &amp;color_, const <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> &amp;specular_color_, float shininess_)</para>
+
+<para>Constructor to initialize a <link linkend="_struct_light">Light</link> object. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Attributes    </title>
+        <itemizedlist>
+            <listitem><para>Vector3f <link linkend="_struct_light_1ab830c6ade5d6a5cb7306cc7803ba92bf">position</link></para>
+
+<para>Position of the light source in the 3D scene. </para>
+</listitem>
+            <listitem><para><link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> <link linkend="_struct_light_1ad7a168d26aed1bf7cca1a8d8e6f8ada4">color</link></para>
+
+<para>Diffuse color of the light. </para>
+</listitem>
+            <listitem><para><link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> <link linkend="_struct_light_1aa6c629968d4bd3bcf77c7f78630ee5aa">specular_color</link></para>
+
+<para>Specular color of the light. </para>
+</listitem>
+            <listitem><para>float <link linkend="_struct_light_1a916d1fdad0ea12c41165fc247219944d">shininess</link></para>
+
+<para>Shininess factor for specular reflection. </para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Detailed Description</title>
+
+<para>Represents a light source in a 3D scene. </para>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_struct_light_1aad4fb273ab8e1969509248ee1d73544a"/><section>
+    <title>Light()</title>
+<indexterm><primary>Light</primary><secondary>Light</secondary></indexterm>
+<indexterm><primary>Light</primary><secondary>Light</secondary></indexterm>
+<para><computeroutput>Light::Light (const Vector3f &amp; position_, const <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> &amp; color_, const <link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> &amp; specular_color_, float shininess_)<computeroutput>[inline]</computeroutput></computeroutput></para><para>
+
+<para>Constructor to initialize a <link linkend="_struct_light">Light</link> object. </para>
+</para>
+
+<para>
+                <formalpara>
+                    <title>
+Parameters</title>
+                    <para>
+                    <table frame="all">
+                        <tgroup cols="2" align="left" colsep="1" rowsep="1">
+                        <colspec colwidth="1*"/>
+                        <colspec colwidth="4*"/>
+                        <tbody>
+                            <row>
+<entry>position_</entry><entry>
+<para>Position of the light source in the 3D scene </para>
+</entry>
+                            </row>
+                            <row>
+<entry>color_</entry><entry>
+<para>Diffuse color of the light </para>
+</entry>
+                            </row>
+                            <row>
+<entry>specular_color_</entry><entry>
+<para>Specular color of the light </para>
+</entry>
+                            </row>
+                            <row>
+<entry>shininess_</entry><entry>
+<para>Shininess factor for specular reflection </para>
+</entry>
+                            </row>
+                        </tbody>
+                        </tgroup>
+                    </table>
+                    </para>
+                </formalpara>
+                </para>
+</section>
+</section>
+<section>
+<title>Member Data Documentation</title>
+<anchor xml:id="_struct_light_1ad7a168d26aed1bf7cca1a8d8e6f8ada4"/><section>
+    <title>color</title>
+<indexterm><primary>color</primary><secondary>Light</secondary></indexterm>
+<indexterm><primary>Light</primary><secondary>color</secondary></indexterm>
+<para><computeroutput><link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> Light::color</computeroutput></para><para>
+
+<para>Diffuse color of the light. </para>
+</para>
+</section>
+<anchor xml:id="_struct_light_1ab830c6ade5d6a5cb7306cc7803ba92bf"/><section>
+    <title>position</title>
+<indexterm><primary>position</primary><secondary>Light</secondary></indexterm>
+<indexterm><primary>Light</primary><secondary>position</secondary></indexterm>
+<para><computeroutput>Vector3f Light::position</computeroutput></para><para>
+
+<para>Position of the light source in the 3D scene. </para>
+</para>
+</section>
+<anchor xml:id="_struct_light_1a916d1fdad0ea12c41165fc247219944d"/><section>
+    <title>shininess</title>
+<indexterm><primary>shininess</primary><secondary>Light</secondary></indexterm>
+<indexterm><primary>Light</primary><secondary>shininess</secondary></indexterm>
+<para><computeroutput>float Light::shininess</computeroutput></para><para>
+
+<para>Shininess factor for specular reflection. </para>
+</para>
+</section>
+<anchor xml:id="_struct_light_1aa6c629968d4bd3bcf77c7f78630ee5aa"/><section>
+    <title>specular_color</title>
+<indexterm><primary>specular_color</primary><secondary>Light</secondary></indexterm>
+<indexterm><primary>Light</primary><secondary>specular_color</secondary></indexterm>
+<para><computeroutput><link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">Color</link> Light::specular_color</computeroutput></para><para>
+
+<para>Specular color of the light. </para>
+</para>
+</section>
+<para>
+The documentation for this struct was generated from the following file:</para>
+source/<link linkend="__light_8h">Light.h</link></section>
+</section>

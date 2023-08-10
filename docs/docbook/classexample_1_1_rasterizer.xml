@@ -1,0 +1,92 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="_classexample_1_1_rasterizer" xml:lang="en-US">
+<title>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt; Class Template Reference</title>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary></indexterm>
+<para>
+<computeroutput>#include &lt;Rasterizer.hpp&gt;</computeroutput>
+</para>
+<simplesect>
+    <title>Public Types    </title>
+        <itemizedlist>
+            <listitem><para>typedef COLOR_BUFFER_TYPE <link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link></para>
+</listitem>
+            <listitem><para>typedef Color_Buffer::Color <link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link></para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<simplesect>
+    <title>Public Member Functions    </title>
+        <itemizedlist>
+            <listitem><para><link linkend="_classexample_1_1_rasterizer_1abd4a31e3b3bc495d66c0d05df25885a1">Rasterizer</link> (<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link> &amp;target)</para>
+</listitem>
+            <listitem><para>const <link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link> &amp; <link linkend="_classexample_1_1_rasterizer_1a882b7468bc75089cb3bdb6cf8f252246">get_color_buffer</link> () const</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_rasterizer_1a6770b1e636262a2977ee2ccca726b134">set_color</link> (const <link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link> &amp;new_color)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_rasterizer_1aaa760e89fe897e351f3e1f54588f512c">set_color</link> (float r, float g, float b)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_rasterizer_1a98cb1b7667d18c7038c964e5551d6d56">clear</link> ()</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_rasterizer_1ae8d8136137381542b9e1ac4ddc410aaa">fill_convex_polygon</link> (const <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> *const vertices, const int *const indices_begin, const int *const indices_end)</para>
+</listitem>
+            <listitem><para>void <link linkend="_classexample_1_1_rasterizer_1a54faf27d2f9ac25948051944bd5b5d0d">fill_convex_polygon_z_buffer</link> (const <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> *const vertices, const int *const indices_begin, const int *const indices_end)</para>
+</listitem>
+        </itemizedlist>
+</simplesect>
+<section>
+<title>Member Typedef Documentation</title>
+<anchor xml:id="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b"/><section>
+    <title>Color</title>
+<indexterm><primary>Color</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>Color</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>typedef Color_Buffer::Color <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;<link linkend="__light_8h_1aa2f9a31c380f9c69ec71c59b9c584fdf">::Color</link></computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525"/><section>
+    <title>Color_Buffer</title>
+<indexterm><primary>Color_Buffer</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>Color_Buffer</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>typedef COLOR_BUFFER_TYPE <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::Color_Buffer</computeroutput></para></section>
+</section>
+<section>
+<title>Constructor &amp; Destructor Documentation</title>
+<anchor xml:id="_classexample_1_1_rasterizer_1abd4a31e3b3bc495d66c0d05df25885a1"/><section>
+    <title>Rasterizer()</title>
+<indexterm><primary>Rasterizer</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>Rasterizer</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput><link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::Rasterizer (<link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link> &amp; target)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+</section>
+<section>
+<title>Member Function Documentation</title>
+<anchor xml:id="_classexample_1_1_rasterizer_1a98cb1b7667d18c7038c964e5551d6d56"/><section>
+    <title>clear()</title>
+<indexterm><primary>clear</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>clear</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>void <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::clear ( )<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1ae8d8136137381542b9e1ac4ddc410aaa"/><section>
+    <title>fill_convex_polygon()</title>
+<indexterm><primary>fill_convex_polygon</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>fill_convex_polygon</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>void <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::fill_convex_polygon (const <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> *const vertices, const int *const indices_begin, const int *const indices_end)</computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1a54faf27d2f9ac25948051944bd5b5d0d"/><section>
+    <title>fill_convex_polygon_z_buffer()</title>
+<indexterm><primary>fill_convex_polygon_z_buffer</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>fill_convex_polygon_z_buffer</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>void <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::fill_convex_polygon_z_buffer (const <link linkend="_namespaceexample_1a7f355f8e2ade5b239d73bf6a019d8088">Point4i</link> *const vertices, const int *const indices_begin, const int *const indices_end)</computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1a882b7468bc75089cb3bdb6cf8f252246"/><section>
+    <title>get_color_buffer()</title>
+<indexterm><primary>get_color_buffer</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>get_color_buffer</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>const <link linkend="_classexample_1_1_rasterizer_1a710beccb975a5f1aa771c44f784da525">Color_Buffer</link> &amp; <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::get_color_buffer ( ) const<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1a6770b1e636262a2977ee2ccca726b134"/><section>
+    <title>set_color()<computeroutput>[1/2]</computeroutput></title>
+<indexterm><primary>set_color</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>set_color</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>void <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::set_color (const <link linkend="_classexample_1_1_rasterizer_1aabfa22a5aef17d16a0cfb362fa30e69b">Color</link> &amp; new_color)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<anchor xml:id="_classexample_1_1_rasterizer_1aaa760e89fe897e351f3e1f54588f512c"/><section>
+    <title>set_color()<computeroutput>[2/2]</computeroutput></title>
+<indexterm><primary>set_color</primary><secondary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</secondary></indexterm>
+<indexterm><primary>example::Rasterizer&lt; COLOR_BUFFER_TYPE &gt;</primary><secondary>set_color</secondary></indexterm>
+<computeroutput>template&lt;class COLOR_BUFFER_TYPE &gt; </computeroutput><para><computeroutput>void <link linkend="_classexample_1_1_rasterizer">example::Rasterizer</link>&lt; COLOR_BUFFER_TYPE &gt;::set_color (float r, float g, float b)<computeroutput>[inline]</computeroutput></computeroutput></para></section>
+<para>
+The documentation for this class was generated from the following file:</para>
+source/<link linkend="__rasterizer_8hpp">Rasterizer.hpp</link></section>
+</section>

@@ -1,0 +1,33 @@
+<?xml version='1.0' encoding='UTF-8' standalone='no'?>
+<section xmlns="http://docbook.org/ns/docbook" version="5.0" xmlns:xlink="http://www.w3.org/1999/xlink" xml:id="__mesh_data_8h_source" xml:lang="en-US">
+<title>MeshData.h</title>
+<indexterm><primary>source/MeshData.h</primary></indexterm>
+Go to the documentation of this file.<programlisting linenumbering="unnumbered">1 <emphasis role="preprocessor">#pragma&#32;once</emphasis>
+2 <emphasis role="preprocessor">#include&#32;&lt;vector&gt;</emphasis>
+3 <emphasis role="preprocessor">#include&#32;&lt;Color_Buffer.hpp&gt;</emphasis>
+4 <emphasis role="preprocessor">#include&#32;&quot;<link linkend="_math_8hpp">math.hpp</link>&quot;</emphasis>
+5 
+6 <emphasis role="keyword">namespace&#32;</emphasis><link linkend="_namespaceexample">example</link>
+7 {
+8 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>argb::Rgb888;
+9 &#32;&#32;&#32;&#32;<emphasis role="keyword">using&#32;</emphasis>argb::Color_Buffer;
+10 
+11 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;<link linkend="_namespaceexample_1af7bbf76e43e095e61054c9983decb1d5">Point4f</link>&#32;<link linkend="_namespaceexample_1a000dc8cdab85d4cfe6b220107e219efa">Vertex</link>;
+12 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;std::vector&lt;Vertex&gt;&#32;<link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link>;
+13 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;std::vector&lt;int&gt;&#32;<link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">Index_Buffer</link>;
+14 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;std::vector&lt;Rgb888&gt;&#32;<link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">Vertex_Colors</link>;
+15 &#32;&#32;&#32;&#32;<emphasis role="keyword">typedef</emphasis>&#32;std::vector&lt;&#32;Vector3f&#32;&gt;&#32;<link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link>;
+23 &#32;&#32;&#32;&#32;<emphasis role="keyword">class&#32;</emphasis><link linkend="_classexample_1_1_mesh_data">MeshData</link>
+24 &#32;&#32;&#32;&#32;{
+25 &#32;&#32;&#32;&#32;<emphasis role="keyword">public</emphasis>:
+26 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link>&#32;<link linkend="_classexample_1_1_mesh_data_1a44d70bf7a3b8ceeabaebbf7958cdcd47">original_vertices</link>;&#32;&#32;&#32;&#32;&#32;
+27 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1aab7f925452dcd8027c1d4d633b20309d">Vertex_Buffer</link>&#32;<link linkend="_classexample_1_1_mesh_data_1a8fcc6db9a74398ca51cc90a677259fd9">transformed_vertices</link>;&#32;&#32;
+28 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1a8039e0f70353385cd9af06518e9a4051">Index_Buffer</link>&#32;<link linkend="_classexample_1_1_mesh_data_1a52d441d29d7aa7def58fa72212d84371">original_indices</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+29 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1a6f0004d98d1604a054fd37af5d44f45a">Vertex_Colors</link>&#32;<link linkend="_classexample_1_1_mesh_data_1a5122c6190c828a05e267621083aa0f54">original_colors</link>;&#32;&#32;&#32;&#32;&#32;&#32;&#32;
+30 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;std::vector&lt;&#32;Point4i&#32;&gt;&#32;<link linkend="_classexample_1_1_mesh_data_1a42cbca900ee7896391b39eff17d88d3d">display_vertices</link>;&#32;
+31 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link>&#32;<link linkend="_classexample_1_1_mesh_data_1a8a62a08b65c01f21f90a90ede5f588cc">original_normals</link>;&#32;&#32;&#32;&#32;&#32;
+32 &#32;&#32;&#32;&#32;&#32;&#32;&#32;&#32;<link linkend="_namespaceexample_1a7c152ff6242d6e3f32393e3fa64edd87">Vertex_Normals</link>&#32;<link linkend="_classexample_1_1_mesh_data_1af4630a1ac22e9dfb0abcd51caa9b0420">transformed_normals</link>;&#32;&#32;
+33 &#32;&#32;&#32;&#32;};
+34 
+35 }
+</programlisting></section>

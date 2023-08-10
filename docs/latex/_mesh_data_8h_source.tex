@@ -1,0 +1,34 @@
+\doxysection{Mesh\+Data.\+h}
+\hypertarget{_mesh_data_8h_source}{}\label{_mesh_data_8h_source}\index{source/MeshData.h@{source/MeshData.h}}
+\mbox{\hyperlink{_mesh_data_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#pragma\ once}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#include\ <vector>}}
+\DoxyCodeLine{00003\ \textcolor{preprocessor}{\#include\ <Color\_Buffer.hpp>}}
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{math_8hpp}{math.hpp}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{keyword}{namespace\ }\mbox{\hyperlink{namespaceexample}{example}}}
+\DoxyCodeLine{00007\ \{}
+\DoxyCodeLine{00008\ \ \ \ \ \textcolor{keyword}{using\ }argb::Rgb888;}
+\DoxyCodeLine{00009\ \ \ \ \ \textcolor{keyword}{using\ }argb::Color\_Buffer;}
+\DoxyCodeLine{00010\ }
+\DoxyCodeLine{00011\ \ \ \ \ \textcolor{keyword}{typedef}\ \mbox{\hyperlink{namespaceexample_af7bbf76e43e095e61054c9983decb1d5}{Point4f}}\ \mbox{\hyperlink{namespaceexample_a000dc8cdab85d4cfe6b220107e219efa}{Vertex}};}
+\DoxyCodeLine{00012\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<Vertex>\ \mbox{\hyperlink{namespaceexample_aab7f925452dcd8027c1d4d633b20309d}{Vertex\_Buffer}};}
+\DoxyCodeLine{00013\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<int>\ \mbox{\hyperlink{namespaceexample_a8039e0f70353385cd9af06518e9a4051}{Index\_Buffer}};}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<Rgb888>\ \mbox{\hyperlink{namespaceexample_a6f0004d98d1604a054fd37af5d44f45a}{Vertex\_Colors}};}
+\DoxyCodeLine{00015\ \ \ \ \ \textcolor{keyword}{typedef}\ std::vector<\ Vector3f\ >\ \mbox{\hyperlink{namespaceexample_a7c152ff6242d6e3f32393e3fa64edd87}{Vertex\_Normals}};}
+\DoxyCodeLine{00023\ \ \ \ \ \textcolor{keyword}{class\ }\mbox{\hyperlink{classexample_1_1_mesh_data}{MeshData}}}
+\DoxyCodeLine{00024\ \ \ \ \ \{}
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00026\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_aab7f925452dcd8027c1d4d633b20309d}{Vertex\_Buffer}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_a44d70bf7a3b8ceeabaebbf7958cdcd47}{original\_vertices}};\ \ \ \ \ }
+\DoxyCodeLine{00027\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_aab7f925452dcd8027c1d4d633b20309d}{Vertex\_Buffer}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_a8fcc6db9a74398ca51cc90a677259fd9}{transformed\_vertices}};\ \ }
+\DoxyCodeLine{00028\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_a8039e0f70353385cd9af06518e9a4051}{Index\_Buffer}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_a52d441d29d7aa7def58fa72212d84371}{original\_indices}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00029\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_a6f0004d98d1604a054fd37af5d44f45a}{Vertex\_Colors}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_a5122c6190c828a05e267621083aa0f54}{original\_colors}};\ \ \ \ \ \ \ }
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ std::vector<\ Point4i\ >\ \mbox{\hyperlink{classexample_1_1_mesh_data_a42cbca900ee7896391b39eff17d88d3d}{display\_vertices}};\ }
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_a7c152ff6242d6e3f32393e3fa64edd87}{Vertex\_Normals}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_a8a62a08b65c01f21f90a90ede5f588cc}{original\_normals}};\ \ \ \ \ }
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{namespaceexample_a7c152ff6242d6e3f32393e3fa64edd87}{Vertex\_Normals}}\ \mbox{\hyperlink{classexample_1_1_mesh_data_af4630a1ac22e9dfb0abcd51caa9b0420}{transformed\_normals}};\ \ }
+\DoxyCodeLine{00033\ \ \ \ \ \};}
+\DoxyCodeLine{00034\ }
+\DoxyCodeLine{00035\ \}}
+
+\end{DoxyCode}
